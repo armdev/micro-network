@@ -1,0 +1,60 @@
+server:  
+  type: default  
+  applicationContextPath: /auth 
+  adminContextPath: /adminauth
+  maxThreads: 10000
+  minThreads: 10
+  gzip:
+    bufferSize: 128KiB
+  applicationConnectors:
+  - type: http     
+    port: 9900
+ #   bindHost: 127.0.0.1 # only bind to loopback
+    headerCacheSize: 512 bytes
+    outputBufferSize: 64KiB
+    maxRequestHeaderSize: 32KiB
+    maxResponseHeaderSize: 32KiB
+    inputBufferSize: 32KiB
+    idleTimeout: 30 seconds
+    minBufferPoolSize: 64 bytes
+    bufferPoolIncrement: 1KiB
+    maxBufferPoolSize: 64KiB
+    acceptorThreads: 1
+    selectorThreads: 2
+    acceptQueueSize: 1024
+    reuseAddress: true
+    soLingerTime: 345s
+    useServerHeader: false
+    useDateHeader: true
+    useForwardedHeaders: true
+  adminConnectors:
+  - type: http
+    port: 9901         
+
+timeout:    
+       0
+       
+mongohost:
+    localhost
+    
+mongoport:
+    27017
+    
+swagger:
+  resourcePackage: com.auth.service.resources
+
+defaultHystrixConfig:
+    hystrix.command.DeviceServiceDependency.execution.isolation.thread.timeoutInMilliseconds: 2000
+    hystrix.threadpool.PinCheckService.maxQueueSize: 50
+    hystrix.threadpool.PinCheckService.coreSize: 5
+    
+logging:
+  level: INFO
+  loggers:
+    io.dropwizard: INFO
+  appenders:
+    - type: console
+
+# Discovery-related settings.
+discovery:
+    serviceName: auth-service
