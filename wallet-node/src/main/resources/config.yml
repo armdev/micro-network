@@ -1,11 +1,11 @@
 server: 
-  applicationContextPath: /
+  applicationContextPath: /wallet-node
   applicationConnectors:
     - type: http
-      port: 8585
+      port: 8686
   adminConnectors:
     - type: http
-      port: 9595
+      port: 9696
   registerDefaultExceptionMappers: true
 
 
