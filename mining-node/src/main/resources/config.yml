@@ -1,11 +1,11 @@
 server: 
-  applicationContextPath: /
+  applicationContextPath: /mining-node
   applicationConnectors:
     - type: http
-      port: 8585
+      port: 8484
   adminConnectors:
     - type: http
-      port: 9595
+      port: 9494
   registerDefaultExceptionMappers: true
 
 
