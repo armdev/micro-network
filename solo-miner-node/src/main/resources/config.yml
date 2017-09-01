@@ -1,5 +1,5 @@
 server: 
-  applicationContextPath: /
+  applicationContextPath: /solo-mining-node
   applicationConnectors:
     - type: http
       port: 8585
