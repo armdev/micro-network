@@ -1,11 +1,11 @@
 server: 
-  applicationContextPath: /
+  applicationContextPath: /full-node
   applicationConnectors:
     - type: http
-      port: 8585
+      port: 8383
   adminConnectors:
     - type: http
-      port: 9595
+      port: 9393
   registerDefaultExceptionMappers: true
 
 
