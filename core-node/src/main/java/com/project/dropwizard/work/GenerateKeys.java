@@ -21,52 +21,51 @@ import java.security.PublicKey;
 
 public class GenerateKeys {
 
-	private KeyPairGenerator keyGen;
-	private KeyPair pair;
-	private PrivateKey privateKey;
-	private PublicKey publicKey;
+    public static void main(String[] args) {
+        GenerateKeys gk;
+        try {
+            gk = new GenerateKeys(1024);
+            gk.createKeys();
+            gk.writeToFile("KeyPair/publicKey", gk.getPublicKey().getEncoded());
+            gk.writeToFile("KeyPair/privateKey", gk.getPrivateKey().getEncoded());
+        } catch (NoSuchAlgorithmException | NoSuchProviderException | IOException e) {
+            System.err.println(e.getMessage());
+        }
 
-	public GenerateKeys(int keylength) throws NoSuchAlgorithmException, NoSuchProviderException {
-		this.keyGen = KeyPairGenerator.getInstance("RSA");
-		this.keyGen.initialize(keylength);
-	}
+    }
 
-	public void createKeys() {
-		this.pair = this.keyGen.generateKeyPair();
-		this.privateKey = pair.getPrivate();
-		this.publicKey = pair.getPublic();
-	}
+    private KeyPairGenerator keyGen;
+    private KeyPair pair;
+    private PrivateKey privateKey;
+    private PublicKey publicKey;
 
-	public PrivateKey getPrivateKey() {
-		return this.privateKey;
-	}
+    public GenerateKeys(int keylength) throws NoSuchAlgorithmException, NoSuchProviderException {
+        this.keyGen = KeyPairGenerator.getInstance("RSA");
+        this.keyGen.initialize(keylength);
+    }
 
-	public PublicKey getPublicKey() {
-		return this.publicKey;
-	}
+    public void createKeys() {
+        this.pair = this.keyGen.generateKeyPair();
+        this.privateKey = pair.getPrivate();
+        this.publicKey = pair.getPublic();
+    }
 
-	public void writeToFile(String path, byte[] key) throws IOException {
-		File f = new File(path);
-		f.getParentFile().mkdirs();
+    public PrivateKey getPrivateKey() {
+        return this.privateKey;
+    }
 
-		FileOutputStream fos = new FileOutputStream(f);
-		fos.write(key);
-		fos.flush();
-		fos.close();
-	}
+    public PublicKey getPublicKey() {
+        return this.publicKey;
+    }
 
-	public static void main(String[] args) {
-		GenerateKeys gk;
-		try {
-			gk = new GenerateKeys(1024);
-			gk.createKeys();
-			gk.writeToFile("KeyPair/publicKey", gk.getPublicKey().getEncoded());
-			gk.writeToFile("KeyPair/privateKey", gk.getPrivateKey().getEncoded());
-		} catch (NoSuchAlgorithmException | NoSuchProviderException e) {
-			System.err.println(e.getMessage());
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		}
+    public void writeToFile(String path, byte[] key) throws IOException {
+        File f = new File(path);
+        f.getParentFile().mkdirs();
 
-	}
+        try (FileOutputStream fos = new FileOutputStream(f)) {
+            fos.write(key);
+            fos.flush();
+        }
+    }
+
 }
