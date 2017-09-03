@@ -1,4 +1,4 @@
 # micro-network
-dropwizard network with zookeeper
+spring cloud
 
 not ready for use
