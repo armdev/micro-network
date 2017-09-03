@@ -1,5 +1,6 @@
 package io.project.application;
 
+import io.project.controllers.ClientController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,17 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CoreNodeApplication {
     
     @Autowired
-    private GreetingClient greetingClient;
+    private ClientController greetingClient;
 
     public static void main(String[] args) {
         SpringApplication.run(CoreNodeApplication.class, args);
     }
 
-    //http://localhost:8585/get-greeting
-    
     @RequestMapping("/get-greeting")
     public String greeting(Model model) {
-        model.addAttribute("greeting", greetingClient.greeting());
+        model.addAttribute("healthcheck", greetingClient.healthcheck());
         return "greeting-view";
     }
 }
