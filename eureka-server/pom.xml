@@ -5,8 +5,8 @@
     <artifactId>demo</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
-    <name>core-node</name>
-    <description>core-node</description>
+    <name>eureka-server</name>
+    <description>eureka-server</description>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -49,11 +49,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>         
+            <artifactId>spring-boot-starter-mustache</artifactId>
         </dependency>
-      
+     
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -64,7 +64,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-      
+       
     </dependencies>
     <dependencyManagement>
         <dependencies>
