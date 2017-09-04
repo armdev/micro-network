@@ -4,8 +4,6 @@ spring:
 
 server:
   port: 8585
-
-spring:
   data:
     mongodb:
       host: localhost
