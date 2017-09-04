@@ -10,6 +10,8 @@ spring:
       port: 27017
       database: full-node
 
+full.node.url: localhost:8686
+
 eureka:
   client:
     serviceUrl:
