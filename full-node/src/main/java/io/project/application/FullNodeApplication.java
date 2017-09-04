@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 @RestController
 public class FullNodeApplication implements GreetingController {
+    
+    
+    public static void main(String[] args) {
+        SpringApplication.run(FullNodeApplication.class, args);
+    }
 
     @Autowired
     @Lazy
@@ -21,12 +26,9 @@ public class FullNodeApplication implements GreetingController {
     @Value("${spring.application.name}")
     private String appName;
 
-    public static void main(String[] args) {
-        SpringApplication.run(FullNodeApplication.class, args);
-    }
 
     @Override
     public String greeting() {
-        return String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName());
+        return String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName() + " I am OK!!!!");
     }
 }
