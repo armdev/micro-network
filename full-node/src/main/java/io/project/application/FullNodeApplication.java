@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class FullNodeApplication implements GreetingController {
-    
+public class FullNodeApplication implements HealthCheckController {    
     
     public static void main(String[] args) {
         SpringApplication.run(FullNodeApplication.class, args);
@@ -28,7 +27,7 @@ public class FullNodeApplication implements GreetingController {
 
 
     @Override
-    public String greeting() {
+    public String healthcheck() {
         return String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName() + " I am OK!!!!");
     }
 }

@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
- * @author armenar
+ * @author armdev
  */
 @Document(collection = "worklog")
 @Setter

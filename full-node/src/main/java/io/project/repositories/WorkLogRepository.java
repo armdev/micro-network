@@ -1,31 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package io.project.repositories;
 
-import io.project.models.WorkLog;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.mongodb.WriteResult;
 import java.util.List;
-import org.springframework.data.mongodb.repository.Query;
 
 /**
  *
- * @author armenar
+ * @author armdev
+ * @param <T>
  */
-public interface WorkLogRepository extends MongoRepository<WorkLog, Long> {
+public interface WorkLogRepository<T> {
 
-    WorkLog findFirstByDomain(String worklog);
+    public List<T> getAllObjects();
 
-    WorkLog findByDomainAndDisplayAds(String worklog, boolean displayAds);
+    public void saveObject(T object);
 
-    //Supports native JSON query string
-    @Query("{worklog:'?0'}")
-    WorkLog findCustomByDomain(String worklog);
+    public T getObject(String id);
 
-    @Query("{worklog: { $regex: ?0 } })")
-    List<WorkLog> findCustomByRegExDomain(String worklog);
+    public WriteResult updateObject(String id, String name);
 
-    public int updateDomain(String domain, boolean displayAds);
+    public void deleteObject(String id);
+
+    public void createCollection();
+
+    public void dropCollection();
 }
