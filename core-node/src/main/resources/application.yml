@@ -1,16 +1,14 @@
+server:
+  port: 8585
+
 spring:
   application:
     name: core-node
-
-server:
-  port: 8585
   data:
     mongodb:
       host: localhost
       port: 27017
-      database: core-node
-
-full.node.url: localhost:8686
+      database: full-node
 
 eureka:
   client:
