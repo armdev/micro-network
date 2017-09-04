@@ -1,5 +1,6 @@
 package io.project.core.application;
 
+import io.project.core.clients.FullNodeClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 @EnableFeignClients
 @RestController
+@Controller
 public class CoreNodeApplication {    
 
     public static void main(String[] args) {
@@ -21,11 +23,11 @@ public class CoreNodeApplication {
     }
     
     @Autowired
-    private HealthChecker clientController;
+    private FullNodeClient fullNodeClient;
 
     @RequestMapping("/get-healthcheck")
     public String getHealthcheck(Model model) {
-        model.addAttribute("healthcheck", clientController.healthcheck());
+        model.addAttribute("healthcheck", fullNodeClient.healthcheck());
         return "greeting-view";
     }
 }
