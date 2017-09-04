@@ -1,33 +1,34 @@
 package io.project.application;
 
-import com.netflix.discovery.EurekaClient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableEurekaClient
-@RestController
-public class FullNodeApplication implements HealthCheckController {    
-    
+@EnableAsync
+@EnableFeignClients
+@EnableMongoAuditing
+@EnableMongoRepositories
+@EnableScheduling
+@EnableHystrix
+@Import(SpringConfig.class)
+@ComponentScan(basePackages = {"io"}, excludeFilters = {
+@ComponentScan.Filter(Configuration.class)})
+public class FullNodeApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(FullNodeApplication.class, args);
     }
 
-    @Autowired
-    @Lazy
-    private EurekaClient eurekaClient;
-
-    @Value("${spring.application.name}")
-    private String appName;
-
-
-    @Override
-    public String healthcheck() {
-        return String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName() + " I am OK!!!!");
-    }
 }

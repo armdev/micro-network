@@ -5,16 +5,22 @@ import io.project.models.WorkLog;
 import io.project.repositories.WorkLogRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author armenar
  */
-public class WorkLogRepositoryImpl implements WorkLogRepository<WorkLog> {
+@Service
+@Scope("singleton")
+@Component
+public class WorkLogService implements WorkLogRepository<WorkLog> {
 
     @Autowired
     private MongoTemplate mongoTemplate;
