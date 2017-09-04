@@ -65,7 +65,6 @@ public class NodeResource {
     @RequestMapping(method = RequestMethod.GET, value = "/all")
     @ApiOperation(value = "all logs", nickname = "LogNode")
     public Response findAllLogs() {
-
         List<WorkLog> list = workLogService.getAllObjects();
         return Response.ok().entity(list).type(javax.ws.rs.core.MediaType.APPLICATION_JSON + ";charset=utf-8").build();
     }
