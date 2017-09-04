@@ -1,6 +1,5 @@
 server:
-  port: 8761
-  
+  port: 8761  
 
 spring:
   data:
@@ -8,7 +7,6 @@ spring:
       host: localhost
       port: 27017
       database: eureka-server
-
 
 eureka:
   client:
