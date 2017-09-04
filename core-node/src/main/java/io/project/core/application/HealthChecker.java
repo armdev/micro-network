@@ -1,8 +1,8 @@
-package io.project.controllers;
+package io.project.core.application;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-public interface HealthCheckController {
+public interface HealthChecker {
     
     @RequestMapping("/healthcheck")
     String healthcheck();

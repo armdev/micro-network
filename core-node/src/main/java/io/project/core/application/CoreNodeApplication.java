@@ -1,4 +1,4 @@
-package io.project.application;
+package io.project.core.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -8,10 +8,9 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import io.project.controllers.HealthCheckController;
 import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "io.project")
 @EnableEurekaClient
 @EnableFeignClients
 @RestController
@@ -22,9 +21,9 @@ public class CoreNodeApplication {
     }
     
     @Autowired
-    private HealthCheckController clientController;
+    private HealthChecker clientController;
 
-    @RequestMapping("/get-greeting")
+    @RequestMapping("/get-healthcheck")
     public String getHealthcheck(Model model) {
         model.addAttribute("healthcheck", clientController.healthcheck());
         return "greeting-view";
