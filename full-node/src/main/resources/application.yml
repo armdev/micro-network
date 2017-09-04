@@ -1,3 +1,6 @@
+server:
+  port: 8686
+
 spring:
   application:
     name: full-node
@@ -6,9 +9,6 @@ spring:
       host: localhost
       port: 27017
       database: full-node
-
-server:
-  port: 8686
 
 eureka:
   client:
