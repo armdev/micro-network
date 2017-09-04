@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CoreNodeApplication {
     
-    @Autowired
-    private ClientController greetingClient;
 
     public static void main(String[] args) {
         SpringApplication.run(CoreNodeApplication.class, args);
     }
+    @Autowired
+    private ClientController greetingClient;
 
     @RequestMapping("/get-greeting")
     public String greeting(Model model) {
