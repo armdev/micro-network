@@ -16,3 +16,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      
+      ### https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
