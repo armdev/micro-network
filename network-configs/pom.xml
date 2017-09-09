@@ -4,7 +4,7 @@
 
   <groupId>io.projects</groupId>
   <artifactId>network-configs</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>network-configs</name>
@@ -49,6 +49,7 @@
   </properties>
 
   <build>
+      <finalName>network-configs</finalName>
      <plugins>
          <!-- We use the Resources plugin to filer Dockerfile and run.sh, it inserts actual JAR filename -->
          <!-- The final Dockerfile will be created in target/dockerfile/Dockerfile -->
