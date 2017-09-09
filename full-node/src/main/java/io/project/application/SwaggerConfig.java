@@ -33,7 +33,7 @@ public class SwaggerConfig {
     @Bean
     public Docket personApi() {
         return new Docket(DocumentationType.SWAGGER_2).enable(true)
-                .groupName("full-node")
+                .groupName("fullnode")
                 .apiInfo(apiInfo())
                 .select()
                 .paths(regex("/api.*"))
