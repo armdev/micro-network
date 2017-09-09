@@ -3,12 +3,12 @@ server:
 
 spring:
   application:
-    name: core-node
+    name: corenode
   data:
     mongodb:
       host: localhost
       port: 27017
-      database: full-node
+      database: corenode
 
 full.node.url: localhost:8686
 
