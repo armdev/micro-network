@@ -1,0 +1,22 @@
+server:
+  port: 8686
+
+spring:
+  application:
+    name: fullnode
+    profiles:
+    active:
+      default
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: fullnode
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  cloud:
+    config:
+      uri: http://localhost:8888
