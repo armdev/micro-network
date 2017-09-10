@@ -32,6 +32,13 @@ public class BlockDAO {
         return block;
     }
 
+    public Block saveBlock(Block block) {
+
+        //create genesis block
+        //do some checks
+        return block;
+    }
+
     public String calculateHash(String index, String previousHash, String timestamp, String data) {
         String sha256hex = DigestUtils.sha256Hex(index + previousHash + timestamp + data);
         return sha256hex;
