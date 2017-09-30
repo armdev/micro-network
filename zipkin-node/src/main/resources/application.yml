@@ -1,0 +1,23 @@
+server:
+  port: 9966
+
+spring:
+  application:
+    name: zipkinnode
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: zipkinnode
+
+zipkin:
+  storage:
+    type: mongodb      
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      
+   
