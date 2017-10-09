@@ -5,14 +5,13 @@
     <artifactId>eureka-server</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
-    <name>eureka-server</name>
-    <description>eureka-server</description>
+    <name>eureka-node</name>
+    <description>eureka-node</description>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.7.RELEASE</version>
-        <relativePath/>
-        <!-- lookup parent from repository -->
+        <relativePath/>      
     </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -78,6 +77,7 @@
         </dependencies>
     </dependencyManagement>
     <build>
+        <finalName>eureka-node</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

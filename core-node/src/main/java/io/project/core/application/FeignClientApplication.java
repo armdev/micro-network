@@ -1,30 +1,34 @@
 package io.project.core.application;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableAsync
 @EnableFeignClients
-@Controller
+@EnableMongoAuditing
+@EnableMongoRepositories
+@EnableScheduling
+@EnableHystrix
+@Import(SpringConfig.class)
+@ComponentScan(basePackages = {"io"}, excludeFilters = {
+@ComponentScan.Filter(Configuration.class)})
 public class FeignClientApplication {
-    
-    @Autowired
-    private GreetingClient greetingClient;
 
     public static void main(String[] args) {
         SpringApplication.run(FeignClientApplication.class, args);
     }
-
-    @RequestMapping("/get-greeting")
-    public String greeting(Model model) {
-        model.addAttribute("healthcheck", greetingClient.greeting());
-        return "greeting-view";
-    }
+    
+  
 }

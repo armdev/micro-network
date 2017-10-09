@@ -6,15 +6,15 @@ spring:
     name: corenode
   data:
     mongodb:
-      host: localhost
+      #host: 192.168.99.100
+      host: 127.0.0.1
       port: 27017
       database: corenode
 
-full.node.url: localhost:8686
+#full.node.url: localhost:8686
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-      
+      defaultZone: ${EUREKA_URI:http://127.0.0.1:8761/eureka}      
       ### https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html

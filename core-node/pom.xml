@@ -21,6 +21,16 @@
         <spring-cloud.version>Dalston.SR3</spring-cloud.version>
     </properties>
     <dependencies>
+         <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
@@ -78,6 +88,7 @@
         </dependencies>
     </dependencyManagement>
     <build>
+        <finalName>core-node</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
