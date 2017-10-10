@@ -5,7 +5,7 @@ spring:
   application:
     name: reporternode
   zipkin:
-    baseUrl: http://localhost:9966
+    baseUrl: http://192.168.99.100:9966
     enabled: true
   data:
     mongodb:
@@ -13,10 +13,9 @@ spring:
       port: 27017
       database: reporternode
 
-
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
       
     
