@@ -1,7 +1,7 @@
 server:
   port: 8761
   #host: 192.168.99.100
-  host: 127.0.0.1
+  #host: 127.0.0.1
 
 spring:
   application:
@@ -14,7 +14,26 @@ spring:
       database: eureka-node
 
 eureka:
+  instance:
+    hostname: localhost
+    metadataMap:
+      instanceId: ${spring.application.name}
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 5
+    lease-expiration-duration-in-seconds: 5
   client:
-    registerWithEureka: false
-    fetchRegistry: false
-    
+    registerWithEureka: false  
+    fetchRegistry: true
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#
+#eureka:
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    
+
+# host config
+# 127.0.0.1 192.168.99.100
+# 192.168.99.100 127.0.0.1
