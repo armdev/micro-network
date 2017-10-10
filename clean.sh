@@ -14,11 +14,10 @@ echo $DOCKER_IP
 #DOCKER_IP=${DOCKER_IP:-0.0.0.0}
 
 # Remove existing containers
-docker rm -f mongo-node
 docker rm -f core-node
+docker rm -f full-node
+docker rm -f config-node
 docker rm -f eureka-node
-#docker-compose rm -f
-
-
+docker rm -f mongo-node
 echo  "Attach to the log output of the cluster"
 docker-compose logs

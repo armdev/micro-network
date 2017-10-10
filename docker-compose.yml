@@ -19,13 +19,33 @@ services:
            - mongo-node
       ports:
         - "8761:8761"            
-  core-node-service:
+  config-node:
+      image: config-node
+      build: ./config-node
+      container_name: "config-node"
+      links:
+           - mongo-node 
+           - eureka-node
+      ports:
+        - "8888:8888"                  
+  full-node:
+      image: full-node
+      build: ./full-node
+      container_name: "full-node"
+      links:
+           - mongo-node            
+           - eureka-node
+           - config-node
+      ports:
+        - "8686:8686"      
+  core-node:
       image: core-node
       build: ./core-node
       container_name: "core-node"
       links:
            - mongo-node            
            - eureka-node
+           - config-node
       ports:
         - "8585:8585"
   
