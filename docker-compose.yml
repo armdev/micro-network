@@ -16,7 +16,23 @@ services:
       build: ./eureka-node
       container_name: "eureka-node"      
       ports:
-        - "8761:8761"            
+        - "8761:8761"    
+  hystrix-node:
+      image: hystrix-node
+      build: ./hystrix-node
+      container_name: "hystrix-node"
+      links:           
+           - eureka-node
+      ports:
+        - "8081:8081"            
+  turbine-node:
+      image: turbine-node
+      build: ./turbine-node
+      container_name: "turbine-node"
+      links:        
+           - eureka-node
+      ports:
+        - "8082:8082"        
   zipkin-node:
       image: zipkin-node
       build: ./zipkin-node
