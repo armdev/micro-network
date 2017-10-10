@@ -17,6 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 // swagger access http://localhost:8686/swagger-ui.html
+    //http://192.168.99.100:8585/swagger-ui.html
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
