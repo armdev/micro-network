@@ -1,0 +1,35 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      server:
+        encrypt.enabled: false
+        git:
+          uri: https://github.com/carnellj/config-repo/
+          searchPaths: fullnode
+          username: native-cloud-apps
+          password: 0ffended
+          
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}    
+
+
+####
+#Classpath and file-based solution
+####
+
+#server:
+#   port: 8888
+#spring:
+#  profiles:
+#    active: native
+#  cloud:
+#     config:
+#       server:
+#           native:
+#              searchLocations: file://<chapter 3>/confsvr/src/main/resources/config/licensingservice,
+#                               file://<chapter 3>confsvr/src/main/resources/config/organizationservice
+###              #searchLocations: classpath:config/,classpath:config/licensingservice
