@@ -7,17 +7,10 @@ spring:
     profiles:
     active:
       default
-#database information will be fetcched from config server      
-#  data:
-#    mongodb:
-#      host: localhost
-#      port: 27017
-#      database: fullnode
-
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: http://192.168.99.100:8888
