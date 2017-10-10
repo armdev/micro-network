@@ -37,8 +37,7 @@ services:
       image: zipkin-node
       build: ./zipkin-node
       container_name: "zipkin-node"
-      links:
-           - mongo-node 
+      links:           
            - eureka-node
       ports:
         - "9966:9966"                        
