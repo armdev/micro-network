@@ -4,18 +4,14 @@ server:
 spring:
   application:
     name: corenode
-    sleuth:
-        enabled: true
-        sampler:
-          percentage: 1
-    zipkin:
-        enabled: true
-        baseUrl: http://192.168.99.100:9411
-    data:
-    mongodb:      
+  zipkin:
+    baseUrl: http://192.168.99.100:9411
+    enabled: true
+  data:
+    mongodb:
       host: 192.168.99.100
       port: 27017
-      database: corenode   
+      database: corenode
       
 eureka:
   client:

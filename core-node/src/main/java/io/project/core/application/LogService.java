@@ -1,5 +1,6 @@
 package io.project.core.application;
 
+import java.time.LocalDateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,19 @@ public class LogService {
             LOGGER.info(msg);
         } finally {
             this.tracer.close(logServiceSpan);
+        }
+    }
+    
+    public String getTimeAsString() {
+
+        Span dateServiceSpan = this.tracer.createSpan("core-node-log");
+
+        try {
+            LOGGER.info("Returning time as String");
+            dateServiceSpan.logEvent("This is my date service event");
+            return LocalDateTime.now().toString();
+        } finally {
+            this.tracer.close(dateServiceSpan);
         }
     }
 

@@ -40,7 +40,7 @@ services:
       links:           
            - eureka-node
       ports:
-        - "9966:9966"                        
+        - "9411:9411"                        
   config-node:
       image: config-node
       build: ./config-node
