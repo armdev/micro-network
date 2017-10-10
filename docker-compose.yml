@@ -14,11 +14,18 @@ services:
   eureka-node:
       image: eureka-node
       build: ./eureka-node
-      container_name: "eureka-node"
-      links:
-           - mongo-node
+      container_name: "eureka-node"      
       ports:
         - "8761:8761"            
+  zipkin-node:
+      image: zipkin-node
+      build: ./zipkin-node
+      container_name: "zipkin-node"
+      links:
+           - mongo-node 
+           - eureka-node
+      ports:
+        - "9966:9966"                        
   config-node:
       image: config-node
       build: ./config-node

@@ -17,6 +17,7 @@ echo $DOCKER_IP
 docker rm -f core-node
 docker rm -f full-node
 docker rm -f config-node
+docker rm -f zipkin-node
 docker rm -f eureka-node
 docker rm -f mongo-node
 echo  "Attach to the log output of the cluster"
