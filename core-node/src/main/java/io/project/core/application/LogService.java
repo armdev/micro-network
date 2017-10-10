@@ -16,7 +16,7 @@ public class LogService {
     @Autowired
     private Tracer tracer;       
 
-    public void log(String msg) {
+    public void log(String msg) {        
         Span logServiceSpan = this.tracer.createSpan("core-node-log");
         try {
             LOGGER.info(msg);

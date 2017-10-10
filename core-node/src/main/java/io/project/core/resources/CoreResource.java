@@ -13,28 +13,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/core")
+@RequestMapping("/api/v1")
 @Produces(MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
 public class CoreResource {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(CoreResource.class);
-    
+
     @Autowired
     private Tracer tracer;
-    
+
     @Autowired
     private LogService logService;
 
-    @RequestMapping("/")
+    @RequestMapping(method = RequestMethod.GET, value = "/home")
     public String home() {
         LOGGER.info("Request to / endpoint");
         return "Hello World";
     }
-    
-    @RequestMapping("/time")
+
+    @RequestMapping(method = RequestMethod.GET, value = "/time")
     public String getLocalTime() throws URISyntaxException {
         LOGGER.info("Request to /time endpoint");
-        logService.log("Will call local service");                        
+        logService.log("Will call local service");
         return "The localtime is: " + System.currentTimeMillis();
     }
 
