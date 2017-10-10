@@ -5,17 +5,17 @@
 
     <groupId>org.saabye_pedersen.zipkin</groupId>
     <artifactId>zipkin-node</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>zipkin-node</name>
-    <description>Zipkin demo</description>
+    <description>zipkin-node</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.7.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> 
     </parent>
 
     <properties>
@@ -36,6 +36,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>zipkin-node</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

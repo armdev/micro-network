@@ -9,15 +9,19 @@ spring:
       host: localhost
       port: 27017
       database: zipkinnode
-
+      
 zipkin:
   storage:
-    type: mongodb      
-
+    type: mem
+    #https://github.com/spring-cloud/spring-cloud-sleuth/blob/master/spring-cloud-sleuth-samples/spring-cloud-sleuth-sample-zipkin-stream/src/main/resources/application.yml
+    #set mysql
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
+  cloud:
+    config:
+      uri: http://192.168.99.100:8888
       
    
