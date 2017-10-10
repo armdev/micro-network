@@ -1,20 +1,29 @@
-server:
-  port: 8585
-
-spring:
-  application:
-    name: corenode
-    zipkin:
-    baseUrl: http://192.168.99.100:9966
-    enabled: true
-    profiles:
-    active:
-      default
-      
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
-  cloud:
-    config:
-      uri: http://192.168.99.100:8888
+#server:
+#  port: 8585
+#
+#spring:
+#  application:
+#    name: corenode
+#    zipkin:
+#    baseUrl: http://192.168.99.100:9966
+#    enabled: true
+#    sleuth:
+#        enabled: true
+#        sampler:
+#          percentage: 1    
+#    profiles:
+#    active:
+#      default
+#    data:
+#    mongodb:      
+#      host: 192.168.99.100
+#      port: 27017
+#      database: corenode   
+#      
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
+#  cloud:
+#    config:
+#      uri: http://192.168.99.100:8888

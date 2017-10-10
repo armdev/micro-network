@@ -7,14 +7,18 @@ spring:
     zipkin:
     baseUrl: http://192.168.99.100:9966
     enabled: true
+    sleuth:
+        enabled: true
+        sampler:
+          percentage: 1    
     profiles:
     active:
       default
-  data:
-    mongodb:
+    data:
+    mongodb:      
       host: 192.168.99.100
       port: 27017
-      database: corenode
+      database: corenode   
       
 eureka:
   client:

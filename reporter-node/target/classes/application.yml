@@ -1,0 +1,22 @@
+server:
+  port: 9987
+
+spring:
+  application:
+    name: reporternode
+  zipkin:
+    baseUrl: http://localhost:9966
+    enabled: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: reporternode
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      
+    

@@ -4,28 +4,23 @@ server:
 spring:
   application:
     name: corenode
-    zipkin:
-    baseUrl: http://192.168.99.100:9966
     sleuth:
         enabled: true
         sampler:
           percentage: 1
-  data:
+    zipkin:
+        enabled: true
+        baseUrl: http://192.168.99.100:9411
+    data:
     mongodb:      
       host: 192.168.99.100
       port: 27017
-      database: corenode
+      database: corenode   
       
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
-  cloud:
-    config:
-      uri: http://192.168.99.100:8888      
-      
-      
-      
-      
-      
-      ### https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+#  cloud:
+#    config:
+#      uri: http://192.168.99.100:8888
