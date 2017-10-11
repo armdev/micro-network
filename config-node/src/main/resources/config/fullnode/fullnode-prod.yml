@@ -1,5 +1,11 @@
 server:
   port: 8686
+undertow:
+   buffer-size: 1073741824
+   direct-buffers: 1073741824
+   io-threads: 100000
+   worker-threads: 100000
+   max-http-post-size: 1073741824   
 
 spring:
   application:

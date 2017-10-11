@@ -39,7 +39,7 @@ public class NodeResource {
     @RequestMapping(method = RequestMethod.GET, value = "/healthcheck")
     @ApiOperation(value = "all logs", nickname = "health")
     public String healthcheck() {
-        return String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName() + " I am OK!!!!");
+        return String.format("Hello from '%s'!", eurekaClient.getApplication(appName).getName() + " I am OK " + System.currentTimeMillis());
     }
 
     @CrossOrigin
