@@ -23,7 +23,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("Spring REST Sample with Swagger")
                 .description("Spring REST Sample with Swagger")
-                .termsOfServiceUrl("http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open")
+                .termsOfServiceUrl("http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open")                
                 .contact("Armen Arzumanyan")
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://github.com/IBM-Bluemix/news-aggregator/blob/master/LICENSE")
@@ -34,7 +34,7 @@ public class SwaggerConfig {
     @Bean
     public Docket personApi() {
         return new Docket(DocumentationType.SWAGGER_2).enable(true)
-                .groupName("fullnode")
+                .groupName("corenode")
                 .apiInfo(apiInfo())
                 .select()
                 .paths(regex("/api.*"))

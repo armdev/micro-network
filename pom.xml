@@ -6,11 +6,11 @@
     <version>1.0</version>
     <packaging>pom</packaging>
     <modules>        
+	    <module>config-node</module>
         <module>eureka-node</module>
-		<module>zipkin-node</module>
-		<module>hystrix-node</module>
+		<module>zipkin-node</module>		
 		<module>turbine-node</module>
-		<module>config-node</module>
+		<module>hystrix-node</module>		
 		<module>core-node</module>
 		<module>full-node</module>
     </modules>

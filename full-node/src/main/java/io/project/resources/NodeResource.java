@@ -1,6 +1,7 @@
 package io.project.resources;
 
 import com.netflix.discovery.EurekaClient;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.project.models.WorkLog;
 import io.project.services.WorkLogService;
 import io.swagger.annotations.ApiOperation;
@@ -35,6 +36,22 @@ public class NodeResource {
 
     @Autowired
     private WorkLogService workLogService;
+
+    @HystrixCommand(fallbackMethod = "reliable")
+    @RequestMapping(method = RequestMethod.GET, value = "/fallback")
+    public String readingList() {                
+        return "regular result";
+    }
+    
+    @HystrixCommand(fallbackMethod = "reliable")
+    @RequestMapping(method = RequestMethod.GET, value = "/callme")
+    public String callme() {                
+        throw new IllegalArgumentException();
+    }
+
+    public String reliable() {
+        return "fallback result";
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/healthcheck")
     @ApiOperation(value = "all logs", nickname = "health")
