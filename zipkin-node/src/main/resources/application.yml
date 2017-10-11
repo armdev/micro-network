@@ -11,18 +11,14 @@ spring:
         enabled: false
     zipkin:
         storage:
-            type: mem
-        
+            type: mem    
 
-    #https://github.com/spring-cloud/spring-cloud-sleuth/blob/master/spring-cloud-sleuth-samples/spring-cloud-sleuth-sample-zipkin-stream/src/main/resources/application.yml
-    #set mysql
-
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
-#  cloud:
-#    config:
-#      uri: http://192.168.99.100:8888
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
+  cloud:
+    config:
+      uri: http://192.168.99.100:8888
       
    

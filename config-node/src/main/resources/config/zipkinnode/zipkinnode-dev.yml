@@ -1,18 +1,17 @@
 server:
-  port: 9966
+     port: 9411 
 
+logging:
+      level.org.springframework.cloud: DEBUG
+    
 spring:
-  application:
-    name: zipkinnode
-  data:
-    mongodb:
-      host: 192.168.99.100
-      port: 27017
-      database: zipkinnode
-      
-zipkin:
-  storage:
-    type: mem      
+    application:
+        name: zipkinnode      
+    sleuth:
+        enabled: false
+    zipkin:
+        storage:
+            type: mem    
 
 eureka:
   client:

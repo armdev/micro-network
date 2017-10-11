@@ -8,8 +8,8 @@ import zipkin.server.EnableZipkinServer;
 
 @SpringBootApplication
 @EnableZipkinServer
-//@EnableEurekaClient
-//@EnableAutoConfiguration
+@EnableEurekaClient
+@EnableAutoConfiguration
 public class ZipkinCoreApplication {
 
 	public static void main(String[] args) {
