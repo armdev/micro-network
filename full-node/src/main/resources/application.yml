@@ -19,6 +19,19 @@ spring:
       port: 27017
       database: fullnode
 
+hystrix:
+  command:
+    RemoteMessageClientCommand:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+    RemoteMessageAnnotationClient:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+            
 eureka:
   client:
     serviceUrl:

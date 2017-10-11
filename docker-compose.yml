@@ -16,23 +16,33 @@ services:
       build: ./eureka-node
       container_name: "eureka-node"      
       ports:
-        - "8761:8761"    
+        - "8761:8761"   
+  config-node:
+      image: config-node
+      build: ./config-node
+      container_name: "config-node"
+      links:
+           - eureka-node          
+      ports:
+        - "8888:8888"  
+  turbine-node:
+      image: turbine-node
+      build: ./turbine-node
+      container_name: "turbine-node"
+      links:        
+           - eureka-node                  
+      ports:
+        - "8082:8082"   
   hystrix-node:
       image: hystrix-node
       build: ./hystrix-node
       container_name: "hystrix-node"
       links:           
            - eureka-node
+           - config-node
+           - turbine-node
       ports:
-        - "8081:8081"            
-  turbine-node:
-      image: turbine-node
-      build: ./turbine-node
-      container_name: "turbine-node"
-      links:        
-           - eureka-node
-      ports:
-        - "8082:8082"        
+        - "8081:8081"                     
   zipkin-node:
       image: zipkin-node
       build: ./zipkin-node
@@ -40,16 +50,8 @@ services:
       links:           
            - eureka-node
       ports:
-        - "9411:9411"                        
-  config-node:
-      image: config-node
-      build: ./config-node
-      container_name: "config-node"
-      links:
-           - mongo-node 
-           - eureka-node
-      ports:
-        - "8888:8888"                  
+        - "9411:9411"                   
+                  
   full-node:
       image: full-node
       build: ./full-node
@@ -70,4 +72,3 @@ services:
            - config-node
       ports:
         - "8585:8585"
-  

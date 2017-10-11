@@ -7,9 +7,9 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 import org.springframework.cloud.netflix.turbine.EnableTurbine;
 
 @SpringBootApplication
-//@EnableEurekaClient
+@EnableEurekaClient
 @EnableHystrixDashboard
-@EnableTurbine
+//@EnableTurbine
 public class HystrixNodeApplication {
 
 	public static void main(String[] args) {
