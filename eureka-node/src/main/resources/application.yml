@@ -6,6 +6,11 @@ server:
 spring:
   application:
     name: eurekanode
+  boot:
+    admin:
+        username: admin
+        password: admin123
+        url: http://192.168.99.100:1111
   data:
     mongodb:
       host: 192.168.99.100
