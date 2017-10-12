@@ -21,7 +21,7 @@ Tested on Windows 10 using DockerToolbox
 
 docker stop $(docker ps -a -q)
 
-# Remove all coontainers
+# Remove all containers
 
 docker rm $(docker ps -a -q)
 
@@ -30,6 +30,6 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 
 
-# Remove all images which has name <none> 
+# Remove all images which has name none
 
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
