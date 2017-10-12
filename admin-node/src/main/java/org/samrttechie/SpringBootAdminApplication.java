@@ -7,10 +7,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import de.codecentric.boot.admin.config.EnableAdminServer;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 @EnableAdminServer
 @Configuration
 @SpringBootApplication
+@EnableAutoConfiguration
 public class SpringBootAdminApplication {
 
 	public static void main(String[] args) {
