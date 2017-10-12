@@ -22,5 +22,6 @@ docker rm -f hystrix-node
 docker rm -f turbine-node
 docker rm -f eureka-node
 docker rm -f mongo-node
+docker rm -f admin-node
 echo  "Attach to the log output of the cluster"
 docker-compose logs

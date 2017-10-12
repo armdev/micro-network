@@ -72,3 +72,14 @@ services:
            - config-node
       ports:
         - "8585:8585"
+  admin-node:
+      image: admin-node
+      build: ./admin-node
+      container_name: "admin-node"
+      links:           
+           - eureka-node
+           - config-node
+           - zipkin-node
+           - turbine-node
+      ports:
+        - "1111:1111"        
