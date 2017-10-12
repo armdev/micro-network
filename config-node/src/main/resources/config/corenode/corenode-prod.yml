@@ -8,6 +8,10 @@ undertow:
    worker-threads: 100000
    max-http-post-size: 1073741824  
 
+management:
+  security:  
+    enabled: false 
+    
 spring:
   application:
     name: corenode
@@ -25,7 +29,12 @@ spring:
     mongodb:      
       host: 192.168.99.100
       port: 27017
-      database: corenode   
+      database: corenode 
+  boot:
+    admin:
+        username: admin
+        password: admin123
+        url: http://192.168.99.100:1111     
       
 eureka:
   client:
