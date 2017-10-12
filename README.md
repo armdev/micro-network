@@ -1,7 +1,8 @@
 # micro-network
 Spring cloud Network
 
-#How to run?
+
+# How to run?
 
 cd to parent folder
 
@@ -13,10 +14,10 @@ cd to parent folder
 Tested on Windows 10 using DockerToolbox
 
 
-Usefull commands
+# Usefull commands
 
 
-#Stop all containers
+# Stop all containers
 
 docker stop $(docker ps -a -q)
 
