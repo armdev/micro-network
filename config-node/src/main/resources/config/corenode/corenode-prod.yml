@@ -15,17 +15,14 @@ management:
 spring:
   application:
     name: corenode
-    zipkin:
+  zipkin:
     baseUrl: http://192.168.99.100:9966
     enabled: true
     sleuth:
         enabled: true
         sampler:
-          percentage: 1    
-    profiles:
-    active:
-      default
-    data:
+          percentage: 1        
+  data:
     mongodb:      
       host: 192.168.99.100
       port: 27017

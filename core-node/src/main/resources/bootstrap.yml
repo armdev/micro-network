@@ -1,19 +1,9 @@
 server:
   port: 8585
-  
-undertow:
-   buffer-size: 1073741824
-   direct-buffers: 1073741824
-   io-threads: 100000
-   worker-threads: 100000
-   max-http-post-size: 1073741824   
 
 spring:
   application:
-    name: corenode
-    profiles:
-    active:
-      dev
+    name: corenode    
       
 eureka:
   client:
@@ -21,4 +11,5 @@ eureka:
       defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
   cloud:
     config:
+      enabled: true
       uri: http://192.168.99.100:8888

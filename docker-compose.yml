@@ -66,8 +66,7 @@ services:
       image: core-node
       build: ./core-node
       container_name: "core-node"
-      links:
-           - mongo-node            
+      links:           
            - eureka-node
            - config-node
       ports:

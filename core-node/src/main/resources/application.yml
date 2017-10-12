@@ -1,17 +1,37 @@
 server:
   port: 8585
+  
+undertow:
+   buffer-size: 1073741824
+   direct-buffers: 1073741824
+   io-threads: 100000
+   worker-threads: 100000
+   max-http-post-size: 1073741824    
 
+management:
+  security:  
+    enabled: false    
+    
 spring:
   application:
     name: corenode
   zipkin:
-    baseUrl: http://192.168.99.100:9411
+    baseUrl: http://192.168.99.100:9966
     enabled: true
+    sleuth:
+        enabled: true
+        sampler:
+          percentage: 1        
   data:
-    mongodb:
+    mongodb:      
       host: 192.168.99.100
       port: 27017
-      database: corenode
+      database: corenode 
+  boot:
+    admin:
+        username: admin
+        password: admin123
+        url: http://192.168.99.100:1111     
       
 eureka:
   client:
