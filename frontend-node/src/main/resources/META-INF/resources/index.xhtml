@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:metadata>           
+
+    </f:metadata> 
+    <f:view contracts="general" transient="true">
+        <ui:composition template="/template.xhtml">              
+            <ui:define name="content"> 
+                <hr/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="jumbotron">
+                                <h2>JSF 2.3 Platform</h2>
+                                <p>Join to rapid web development!!</p>
+                                <p>                                    
+                                    <a href="login.jsf" class="btn btn-primary btn-lg" role="button">Sign In</a>
+                                    <a href="register.jsf" class="btn btn-danger btn-lg" role="button">Sign Up</a>                                    
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>
