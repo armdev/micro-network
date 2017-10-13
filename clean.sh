@@ -23,5 +23,6 @@ docker rm -f turbine-node
 docker rm -f eureka-node
 docker rm -f mongo-node
 docker rm -f admin-node
+docker rm -f frontend-node
 echo  "Attach to the log output of the cluster"
 docker-compose logs
