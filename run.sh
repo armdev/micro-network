@@ -17,7 +17,7 @@ echo $DOCKER_IP
 #DOCKER_IP=${DOCKER_IP:-0.0.0.0}
 
 # Remove existing containers
-docker-compose stop
+docker-compose down
 #docker-compose rm -f
 
 echo "Start the config service first and wait for it to become available"

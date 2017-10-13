@@ -1,4 +1,4 @@
-﻿version: '2'
+version: '2'
 services:
   mongo-node:
         image: mongo:latest
@@ -87,4 +87,4 @@ services:
       build: ./frontend-node
       container_name: "frontend-node"    
       ports:
-        - "9999:9999"
+        - "9999:9999"       

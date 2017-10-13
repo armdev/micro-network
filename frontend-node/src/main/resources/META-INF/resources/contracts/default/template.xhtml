@@ -6,17 +6,20 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">    
     <h:head>
         <ui:insert name="header"></ui:insert> 
-        <ui:include src="/WEB-INF/layout/header_main.xhtml"/>     
+        <ui:include src="header_main.xhtml"/>     
     </h:head>
     <h:body>
-        
+        <ui:insert name="navigation"></ui:insert> 
+        <div id="wrapper">
+            <ui:include src="menu_main.xhtml"/>  
+        </div>
         <ui:insert name="content"></ui:insert> 
         <div class="container">
             <ui:insert name="footer"></ui:insert> 
             <hr/>
-            <ui:include src="/WEB-INF/layout/footer.xhtml"/> 
+            <ui:include src="footer.xhtml"/> 
         </div><!-- /.container -->
-        <ui:include src="/WEB-INF/layout/footer_includes.xhtml"/>   
+        <ui:include src="footer_includes.xhtml"/>   
     </h:body>
 </html>
 
