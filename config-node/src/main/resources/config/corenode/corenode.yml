@@ -16,12 +16,12 @@ spring:
   application:
     name: corenode
   zipkin:
-    baseUrl: http://192.168.99.100:9966
+    baseUrl: http://192.168.99.100:9411
     enabled: true
-    sleuth:
-        enabled: true
-        sampler:
-          percentage: 1        
+  sleuth:
+    enabled: true
+    sampler:
+    percentage: 1        
   data:
     mongodb:      
       host: 192.168.99.100

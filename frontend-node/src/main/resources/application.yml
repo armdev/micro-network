@@ -17,7 +17,7 @@ undertow:
 cdi:
   version: @cdi.version@
 mojarra:
-  version: @javax.faces.version@
+  version: 2.3
 primefaces:
   version: @primefaces.version@
   theme: le-frog

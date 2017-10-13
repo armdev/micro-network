@@ -1,3 +1,5 @@
 /zipkin-node/target/
 /reporter-node/target/
 /frontend-node/target/
+/airlines-web/target/
+/micro-web/target/
