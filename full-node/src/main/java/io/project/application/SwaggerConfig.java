@@ -18,6 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 // swagger access http://localhost:8686/swagger-ui.html
 
+    @SuppressWarnings("deprecation")
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Spring REST Sample with Swagger")

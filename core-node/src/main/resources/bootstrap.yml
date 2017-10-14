@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: corenode    
+    profiles:
+    active:
+      default
       
 eureka:
   client:
@@ -11,5 +14,7 @@ eureka:
       defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
   cloud:
     config:
-      enabled: true
       uri: http://192.168.99.100:8888
+    discovery:
+        enabled: true
+        serviceId: HYSTRIXNODE  

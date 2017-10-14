@@ -1,5 +1,6 @@
 server:
   port: 8686
+  
 undertow:
    buffer-size: 1073741824
    direct-buffers: 1073741824

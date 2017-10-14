@@ -3,3 +3,5 @@
 /frontend-node/target/
 /airlines-web/target/
 /micro-web/target/
+/admin-node/target/
+/jsf-hystrix-fallback-master/jsf-hystrix/target/

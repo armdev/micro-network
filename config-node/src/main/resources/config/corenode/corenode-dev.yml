@@ -31,7 +31,20 @@ spring:
     admin:
         username: admin
         password: admin123
-        url: http://192.168.99.100:1111     
+        url: http://192.168.99.100:1111
+
+hystrix:
+  command:
+    RemoteMessageClientCommand:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+    RemoteMessageAnnotationClient:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000          
       
 eureka:
   client:

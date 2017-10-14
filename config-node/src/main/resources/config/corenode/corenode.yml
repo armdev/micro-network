@@ -15,6 +15,9 @@ management:
 spring:
   application:
     name: corenode
+    profiles:
+    active:
+      default
   zipkin:
     baseUrl: http://192.168.99.100:9411
     enabled: true
@@ -31,8 +34,10 @@ spring:
     admin:
         username: admin
         password: admin123
-        url: http://192.168.99.100:1111     
-      
+        url: http://192.168.99.100:1111    
+
+
+            
 eureka:
   client:
     serviceUrl:
