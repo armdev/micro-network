@@ -27,11 +27,11 @@ spring:
   jpa:
       database: MYSQL
       hibernate:
-        ddl-auto: validate
+        ddl-auto: none
         dialect:  org.hibernate.dialect.MySQLDialect
   datasource:
         url: jdbc:mysql://192.168.99.10:3306/airlines?zeroDateTimeBehavior=convertToNull&amp;useUnicode=yes&amp;characterEncoding=UTF-8
-        username: root
+        username: admin
         password: root
         driver-class-name: com.mysql.jdbc.Driver      
   

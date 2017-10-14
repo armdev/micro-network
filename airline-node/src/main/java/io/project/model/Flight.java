@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,133 +34,74 @@ public class Flight implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    @Column(name = "Year")
+    @Column(name = "year")
     private Integer year;
-    @Column(name = "Quarter")
+    @Column(name = "quarter")
     private Integer quarter;
-    @Column(name = "Month")
+    @Column(name = "month")
     private Integer month;
-    @Column(name = "DayofMonth")
-    private Integer dayofMonth;
-    @Column(name = "DayOfWeek")
-    private Integer dayOfWeek;
-    @Column(name = "FlightDate")
+    @Column(name = "dayofmonth")
+    private Integer dayofmonth;
+    @Column(name = "dayofweek")
+    private Integer dayofweek;
+    @Column(name = "flightdate")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date flightDate;
+    private Date flightdate;
     @Size(max = 2)
-    @Column(name = "UniqueCarrier")
-    private String uniqueCarrier;
-    @Column(name = "AirlineID")
-    private Integer airlineID;
+    @Column(name = "uniquecarrier")
+    private String uniquecarrier;
+    @Column(name = "airlineid")
+    private Integer airlineid;
     @Size(max = 2)
-    @Column(name = "Carrier")
+    @Column(name = "carrier")
     private String carrier;
     @Size(max = 6)
-    @Column(name = "TailNum")
-    private String tailNum;
-    @Column(name = "FlightNum")
-    private Integer flightNum;
-    @Column(name = "OriginAirportID")
-    private Integer originAirportID;
-    @Column(name = "OriginAirportSeqID")
-    private Integer originAirportSeqID;
-    @Column(name = "OriginCityMarketID")
-    private Integer originCityMarketID;
+    @Column(name = "tailnum")
+    private String tailnum;
+    @Column(name = "flightnum")
+    private Integer flightnum;
+    @Column(name = "originairportid")
+    private Integer originairportid;
+    @Column(name = "originairportseqid")
+    private Integer originairportseqid;
+    @Column(name = "origincitymarketid")
+    private Integer origincitymarketid;
     @Size(max = 3)
-    @Column(name = "Origin")
+    @Column(name = "origin")
     private String origin;
     @Size(max = 30)
-    @Column(name = "OriginCityName")
-    private String originCityName;
+    @Column(name = "origincityname")
+    private String origincityname;
     @Size(max = 2)
-    @Column(name = "OriginState")
-    private String originState;
-    @Column(name = "OriginStateFips")
-    private Integer originStateFips;
+    @Column(name = "originstate")
+    private String originstate;
+    @Column(name = "originstatefips")
+    private Integer originstatefips;
     @Size(max = 14)
-    @Column(name = "OriginStateName")
-    private String originStateName;
-    @Column(name = "OriginWac")
-    private Integer originWac;
-    @Column(name = "DestAirportID")
-    private Integer destAirportID;
-    @Column(name = "DestAirportSeqID")
-    private Integer destAirportSeqID;
-    @Column(name = "DestCityMarketID")
-    private Integer destCityMarketID;
+    @Column(name = "originstatename")
+    private String originstatename;
+    @Column(name = "originwac")
+    private Integer originwac;
+    @Column(name = "destairportid")
+    private Integer destairportid;
+    @Column(name = "destairportseqid")
+    private Integer destairportseqid;
+    @Column(name = "destcitymarketid")
+    private Integer destcitymarketid;
     @Size(max = 3)
-    @Column(name = "Dest")
+    @Column(name = "dest")
     private String dest;
     @Size(max = 21)
-    @Column(name = "DestCityName")
-    private String destCityName;
+    @Column(name = "destcityname")
+    private String destcityname;
     @Size(max = 2)
-    @Column(name = "DestState")
-    private String destState;
-    @Column(name = "DestStateFips")
-    private Integer destStateFips;
+    @Column(name = "deststate")
+    private String deststate;
+    @Column(name = "deststatefips")
+    private Integer deststatefips;
     @Size(max = 14)
-    @Column(name = "DestStateName")
-    private String destStateName;
-    @Column(name = "DestWac")
-    private Integer destWac;
-    @Column(name = "CRSDepTime")
-    private Integer cRSDepTime;
-    @Column(name = "DepTime")
-    private Integer depTime;
-    @Column(name = "DepDelay")
-    private Integer depDelay;
-    @Column(name = "DepDelayMinutes")
-    private Integer depDelayMinutes;
-    @Column(name = "DepDel15")
-    private Integer depDel15;
-    @Column(name = "DepartureDelayGroups")
-    private Integer departureDelayGroups;
-    @Size(max = 9)
-    @Column(name = "DepTimeBlk")
-    private String depTimeBlk;
-    @Column(name = "TaxiOut")
-    private Integer taxiOut;
-    @Column(name = "WheelsOff")
-    private Integer wheelsOff;
-    @Column(name = "WheelsOn")
-    private Integer wheelsOn;
-    @Column(name = "TaxiIn")
-    private Integer taxiIn;
-    @Column(name = "CRSArrTime")
-    private Integer cRSArrTime;
-    @Column(name = "ArrTime")
-    private Integer arrTime;
-    @Column(name = "ArrDelay")
-    private Integer arrDelay;
-    @Column(name = "ArrDelayMinutes")
-    private Integer arrDelayMinutes;
-    @Column(name = "ArrDel15")
-    private Integer arrDel15;
-    @Column(name = "ArrivalDelayGroups")
-    private Integer arrivalDelayGroups;
-    @Size(max = 9)
-    @Column(name = "ArrTimeBlk")
-    private String arrTimeBlk;
-    @Column(name = "Cancelled")
-    private Integer cancelled;
-    @Size(max = 1)
-    @Column(name = "CancellationCode")
-    private String cancellationCode;
-    @Column(name = "Diverted")
-    private Integer diverted;
-    @Column(name = "CRSElapsedTime")
-    private Integer cRSElapsedTime;
-    @Column(name = "ActualElapsedTime")
-    private Integer actualElapsedTime;
-    @Column(name = "AirTime")
-    private Integer airTime;
-    @Column(name = "Flights")
-    private Integer flights;
-    @Column(name = "Distance")
-    private Integer distance;
-    @Column(name = "DistanceGroup")
-    private Integer distanceGroup;
+    @Column(name = "deststatename")
+    private String deststatename;
 
     public Flight() {
     }
@@ -199,44 +142,44 @@ public class Flight implements Serializable {
         this.month = month;
     }
 
-    public Integer getDayofMonth() {
-        return dayofMonth;
+    public Integer getDayofmonth() {
+        return dayofmonth;
     }
 
-    public void setDayofMonth(Integer dayofMonth) {
-        this.dayofMonth = dayofMonth;
+    public void setDayofmonth(Integer dayofmonth) {
+        this.dayofmonth = dayofmonth;
     }
 
-    public Integer getDayOfWeek() {
-        return dayOfWeek;
+    public Integer getDayofweek() {
+        return dayofweek;
     }
 
-    public void setDayOfWeek(Integer dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
+    public void setDayofweek(Integer dayofweek) {
+        this.dayofweek = dayofweek;
     }
 
-    public Date getFlightDate() {
-        return flightDate;
+    public Date getFlightdate() {
+        return flightdate;
     }
 
-    public void setFlightDate(Date flightDate) {
-        this.flightDate = flightDate;
+    public void setFlightdate(Date flightdate) {
+        this.flightdate = flightdate;
     }
 
-    public String getUniqueCarrier() {
-        return uniqueCarrier;
+    public String getUniquecarrier() {
+        return uniquecarrier;
     }
 
-    public void setUniqueCarrier(String uniqueCarrier) {
-        this.uniqueCarrier = uniqueCarrier;
+    public void setUniquecarrier(String uniquecarrier) {
+        this.uniquecarrier = uniquecarrier;
     }
 
-    public Integer getAirlineID() {
-        return airlineID;
+    public Integer getAirlineid() {
+        return airlineid;
     }
 
-    public void setAirlineID(Integer airlineID) {
-        this.airlineID = airlineID;
+    public void setAirlineid(Integer airlineid) {
+        this.airlineid = airlineid;
     }
 
     public String getCarrier() {
@@ -247,44 +190,44 @@ public class Flight implements Serializable {
         this.carrier = carrier;
     }
 
-    public String getTailNum() {
-        return tailNum;
+    public String getTailnum() {
+        return tailnum;
     }
 
-    public void setTailNum(String tailNum) {
-        this.tailNum = tailNum;
+    public void setTailnum(String tailnum) {
+        this.tailnum = tailnum;
     }
 
-    public Integer getFlightNum() {
-        return flightNum;
+    public Integer getFlightnum() {
+        return flightnum;
     }
 
-    public void setFlightNum(Integer flightNum) {
-        this.flightNum = flightNum;
+    public void setFlightnum(Integer flightnum) {
+        this.flightnum = flightnum;
     }
 
-    public Integer getOriginAirportID() {
-        return originAirportID;
+    public Integer getOriginairportid() {
+        return originairportid;
     }
 
-    public void setOriginAirportID(Integer originAirportID) {
-        this.originAirportID = originAirportID;
+    public void setOriginairportid(Integer originairportid) {
+        this.originairportid = originairportid;
     }
 
-    public Integer getOriginAirportSeqID() {
-        return originAirportSeqID;
+    public Integer getOriginairportseqid() {
+        return originairportseqid;
     }
 
-    public void setOriginAirportSeqID(Integer originAirportSeqID) {
-        this.originAirportSeqID = originAirportSeqID;
+    public void setOriginairportseqid(Integer originairportseqid) {
+        this.originairportseqid = originairportseqid;
     }
 
-    public Integer getOriginCityMarketID() {
-        return originCityMarketID;
+    public Integer getOrigincitymarketid() {
+        return origincitymarketid;
     }
 
-    public void setOriginCityMarketID(Integer originCityMarketID) {
-        this.originCityMarketID = originCityMarketID;
+    public void setOrigincitymarketid(Integer origincitymarketid) {
+        this.origincitymarketid = origincitymarketid;
     }
 
     public String getOrigin() {
@@ -295,68 +238,68 @@ public class Flight implements Serializable {
         this.origin = origin;
     }
 
-    public String getOriginCityName() {
-        return originCityName;
+    public String getOrigincityname() {
+        return origincityname;
     }
 
-    public void setOriginCityName(String originCityName) {
-        this.originCityName = originCityName;
+    public void setOrigincityname(String origincityname) {
+        this.origincityname = origincityname;
     }
 
-    public String getOriginState() {
-        return originState;
+    public String getOriginstate() {
+        return originstate;
     }
 
-    public void setOriginState(String originState) {
-        this.originState = originState;
+    public void setOriginstate(String originstate) {
+        this.originstate = originstate;
     }
 
-    public Integer getOriginStateFips() {
-        return originStateFips;
+    public Integer getOriginstatefips() {
+        return originstatefips;
     }
 
-    public void setOriginStateFips(Integer originStateFips) {
-        this.originStateFips = originStateFips;
+    public void setOriginstatefips(Integer originstatefips) {
+        this.originstatefips = originstatefips;
     }
 
-    public String getOriginStateName() {
-        return originStateName;
+    public String getOriginstatename() {
+        return originstatename;
     }
 
-    public void setOriginStateName(String originStateName) {
-        this.originStateName = originStateName;
+    public void setOriginstatename(String originstatename) {
+        this.originstatename = originstatename;
     }
 
-    public Integer getOriginWac() {
-        return originWac;
+    public Integer getOriginwac() {
+        return originwac;
     }
 
-    public void setOriginWac(Integer originWac) {
-        this.originWac = originWac;
+    public void setOriginwac(Integer originwac) {
+        this.originwac = originwac;
     }
 
-    public Integer getDestAirportID() {
-        return destAirportID;
+    public Integer getDestairportid() {
+        return destairportid;
     }
 
-    public void setDestAirportID(Integer destAirportID) {
-        this.destAirportID = destAirportID;
+    public void setDestairportid(Integer destairportid) {
+        this.destairportid = destairportid;
     }
 
-    public Integer getDestAirportSeqID() {
-        return destAirportSeqID;
+    public Integer getDestairportseqid() {
+        return destairportseqid;
     }
 
-    public void setDestAirportSeqID(Integer destAirportSeqID) {
-        this.destAirportSeqID = destAirportSeqID;
+    public void setDestairportseqid(Integer destairportseqid) {
+        this.destairportseqid = destairportseqid;
     }
 
-    public Integer getDestCityMarketID() {
-        return destCityMarketID;
+    public Integer getDestcitymarketid() {
+        return destcitymarketid;
     }
 
-    public void setDestCityMarketID(Integer destCityMarketID) {
-        this.destCityMarketID = destCityMarketID;
+    public void setDestcitymarketid(Integer destcitymarketid) {
+        this.destcitymarketid = destcitymarketid;
     }
 
     public String getDest() {
@@ -367,260 +310,36 @@ public class Flight implements Serializable {
         this.dest = dest;
     }
 
-    public String getDestCityName() {
-        return destCityName;
+    public String getDestcityname() {
+        return destcityname;
     }
 
-    public void setDestCityName(String destCityName) {
-        this.destCityName = destCityName;
+    public void setDestcityname(String destcityname) {
+        this.destcityname = destcityname;
     }
 
-    public String getDestState() {
-        return destState;
+    public String getDeststate() {
+        return deststate;
     }
 
-    public void setDestState(String destState) {
-        this.destState = destState;
+    public void setDeststate(String deststate) {
+        this.deststate = deststate;
     }
 
-    public Integer getDestStateFips() {
-        return destStateFips;
+    public Integer getDeststatefips() {
+        return deststatefips;
     }
 
-    public void setDestStateFips(Integer destStateFips) {
-        this.destStateFips = destStateFips;
+    public void setDeststatefips(Integer deststatefips) {
+        this.deststatefips = deststatefips;
     }
 
-    public String getDestStateName() {
-        return destStateName;
+    public String getDeststatename() {
+        return deststatename;
     }
 
-    public void setDestStateName(String destStateName) {
-        this.destStateName = destStateName;
-    }
-
-    public Integer getDestWac() {
-        return destWac;
-    }
-
-    public void setDestWac(Integer destWac) {
-        this.destWac = destWac;
-    }
-
-    public Integer getCRSDepTime() {
-        return cRSDepTime;
-    }
-
-    public void setCRSDepTime(Integer cRSDepTime) {
-        this.cRSDepTime = cRSDepTime;
-    }
-
-    public Integer getDepTime() {
-        return depTime;
-    }
-
-    public void setDepTime(Integer depTime) {
-        this.depTime = depTime;
-    }
-
-    public Integer getDepDelay() {
-        return depDelay;
-    }
-
-    public void setDepDelay(Integer depDelay) {
-        this.depDelay = depDelay;
-    }
-
-    public Integer getDepDelayMinutes() {
-        return depDelayMinutes;
-    }
-
-    public void setDepDelayMinutes(Integer depDelayMinutes) {
-        this.depDelayMinutes = depDelayMinutes;
-    }
-
-    public Integer getDepDel15() {
-        return depDel15;
-    }
-
-    public void setDepDel15(Integer depDel15) {
-        this.depDel15 = depDel15;
-    }
-
-    public Integer getDepartureDelayGroups() {
-        return departureDelayGroups;
-    }
-
-    public void setDepartureDelayGroups(Integer departureDelayGroups) {
-        this.departureDelayGroups = departureDelayGroups;
-    }
-
-    public String getDepTimeBlk() {
-        return depTimeBlk;
-    }
-
-    public void setDepTimeBlk(String depTimeBlk) {
-        this.depTimeBlk = depTimeBlk;
-    }
-
-    public Integer getTaxiOut() {
-        return taxiOut;
-    }
-
-    public void setTaxiOut(Integer taxiOut) {
-        this.taxiOut = taxiOut;
-    }
-
-    public Integer getWheelsOff() {
-        return wheelsOff;
-    }
-
-    public void setWheelsOff(Integer wheelsOff) {
-        this.wheelsOff = wheelsOff;
-    }
-
-    public Integer getWheelsOn() {
-        return wheelsOn;
-    }
-
-    public void setWheelsOn(Integer wheelsOn) {
-        this.wheelsOn = wheelsOn;
-    }
-
-    public Integer getTaxiIn() {
-        return taxiIn;
-    }
-
-    public void setTaxiIn(Integer taxiIn) {
-        this.taxiIn = taxiIn;
-    }
-
-    public Integer getCRSArrTime() {
-        return cRSArrTime;
-    }
-
-    public void setCRSArrTime(Integer cRSArrTime) {
-        this.cRSArrTime = cRSArrTime;
-    }
-
-    public Integer getArrTime() {
-        return arrTime;
-    }
-
-    public void setArrTime(Integer arrTime) {
-        this.arrTime = arrTime;
-    }
-
-    public Integer getArrDelay() {
-        return arrDelay;
-    }
-
-    public void setArrDelay(Integer arrDelay) {
-        this.arrDelay = arrDelay;
-    }
-
-    public Integer getArrDelayMinutes() {
-        return arrDelayMinutes;
-    }
-
-    public void setArrDelayMinutes(Integer arrDelayMinutes) {
-        this.arrDelayMinutes = arrDelayMinutes;
-    }
-
-    public Integer getArrDel15() {
-        return arrDel15;
-    }
-
-    public void setArrDel15(Integer arrDel15) {
-        this.arrDel15 = arrDel15;
-    }
-
-    public Integer getArrivalDelayGroups() {
-        return arrivalDelayGroups;
-    }
-
-    public void setArrivalDelayGroups(Integer arrivalDelayGroups) {
-        this.arrivalDelayGroups = arrivalDelayGroups;
-    }
-
-    public String getArrTimeBlk() {
-        return arrTimeBlk;
-    }
-
-    public void setArrTimeBlk(String arrTimeBlk) {
-        this.arrTimeBlk = arrTimeBlk;
-    }
-
-    public Integer getCancelled() {
-        return cancelled;
-    }
-
-    public void setCancelled(Integer cancelled) {
-        this.cancelled = cancelled;
-    }
-
-    public String getCancellationCode() {
-        return cancellationCode;
-    }
-
-    public void setCancellationCode(String cancellationCode) {
-        this.cancellationCode = cancellationCode;
-    }
-
-    public Integer getDiverted() {
-        return diverted;
-    }
-
-    public void setDiverted(Integer diverted) {
-        this.diverted = diverted;
-    }
-
-    public Integer getCRSElapsedTime() {
-        return cRSElapsedTime;
-    }
-
-    public void setCRSElapsedTime(Integer cRSElapsedTime) {
-        this.cRSElapsedTime = cRSElapsedTime;
-    }
-
-    public Integer getActualElapsedTime() {
-        return actualElapsedTime;
-    }
-
-    public void setActualElapsedTime(Integer actualElapsedTime) {
-        this.actualElapsedTime = actualElapsedTime;
-    }
-
-    public Integer getAirTime() {
-        return airTime;
-    }
-
-    public void setAirTime(Integer airTime) {
-        this.airTime = airTime;
-    }
-
-    public Integer getFlights() {
-        return flights;
-    }
-
-    public void setFlights(Integer flights) {
-        this.flights = flights;
-    }
-
-    public Integer getDistance() {
-        return distance;
-    }
-
-    public void setDistance(Integer distance) {
-        this.distance = distance;
-    }
-
-    public Integer getDistanceGroup() {
-        return distanceGroup;
-    }
-
-    public void setDistanceGroup(Integer distanceGroup) {
-        this.distanceGroup = distanceGroup;
+    public void setDeststatename(String deststatename) {
+        this.deststatename = deststatename;
     }
 
     @Override

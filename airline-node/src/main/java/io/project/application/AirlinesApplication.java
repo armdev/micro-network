@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -25,7 +26,8 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @EnableAsync
 @EnableFeignClients
-@EnableJpaRepositories
+@EnableJpaRepositories("io.project.repositories")
+@EnableTransactionManagement(proxyTargetClass = true)
 @EnableScheduling
 @EnableHystrix
 @EnableCircuitBreaker

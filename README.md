@@ -48,6 +48,10 @@ full-node
 
 http://192.168.99.100:8686/swagger-ui.html
 
+airline-node
+
+http://192.168.99.100:9090/swagger-ui.html
+
 turbine-node
 
 http://192.168.99.100:8082/turbine.stream
@@ -69,9 +73,13 @@ Zipkin node will show logs from core-node after you click core node http://192.1
 http://192.168.99.100:9411/
 
 Admin Tool Access
+
 http://192.168.99.100:1111/login.html
+
 User admin
 Password admin123
+
+
 
 
 
