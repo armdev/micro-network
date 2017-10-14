@@ -10,13 +10,12 @@
         <module>eureka-node</module>
         <module>zipkin-node</module>		
         <module>turbine-node</module>
-        <module>hystrix-node</module>		
+        <module>hystrix-node</module>	        	
         <module>core-node</module>
         <module>full-node</module>
+        <module>airline-node</module>
         <module>admin-node</module>
-        <module>frontend-node</module>
-      
-        
+        <module>frontend-node</module>        
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

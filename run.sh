@@ -23,5 +23,8 @@ docker-compose down
 echo "Start the config service first and wait for it to become available"
 docker-compose up -d --build
 
+#docker exec -i mysql-node mysql -uroot -proot airlines < /mysql-node/db/airlines.sql
+#docker-compose exec mysql-node /bin/bash -c 'mysql -uroot -proot < ./mysql-node/db/airlines.sql'
+
 echo  "Attach to the log output of the cluster"
 docker-compose logs

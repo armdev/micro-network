@@ -16,5 +16,5 @@ eureka:
 
 turbine:
   clusterNameExpression: new String("default")
-  appConfig: fullnode, corenode
+  appConfig: fullnode, corenode, airlinenode
   combineHostPort: true

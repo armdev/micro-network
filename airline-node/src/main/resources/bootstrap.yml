@@ -1,0 +1,38 @@
+server:
+  port: 9090
+  
+undertow:
+   buffer-size: 1073741824
+   direct-buffers: 1073741824
+   io-threads: 100000
+   worker-threads: 100000
+   max-http-post-size: 1073741824   
+
+spring:
+  application:
+    name:  airlinenode    
+    profiles:
+    active:
+      default
+  jpa:
+      database: MYSQL
+      hibernate:
+        ddl-auto: validate
+        dialect:  org.hibernate.dialect.MySQLDialect
+        
+  datasource:
+        url: jdbc:mysql://192.168.99.10:3306/airlines?zeroDateTimeBehavior=convertToNull&amp;useUnicode=yes&amp;characterEncoding=UTF-8
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver    
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://192.168.99.100:8761/eureka}
+  cloud:
+    config:
+      uri: http://192.168.99.100:8888
+    discovery:
+        enabled: true
+        serviceId: HYSTRIXNODE  
