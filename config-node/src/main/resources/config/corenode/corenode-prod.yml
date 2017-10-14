@@ -1,20 +1,23 @@
 server:
   port: 8585
-
+  
 undertow:
    buffer-size: 1073741824
    direct-buffers: 1073741824
    io-threads: 100000
    worker-threads: 100000
-   max-http-post-size: 1073741824  
+   max-http-post-size: 1073741824    
 
 management:
   security:  
-    enabled: false 
+    enabled: false    
     
 spring:
   application:
     name: corenode
+    profiles:
+    active:
+      default
   zipkin:
     baseUrl: http://192.168.99.100:9411
     enabled: true
@@ -31,20 +34,10 @@ spring:
     admin:
         username: admin
         password: admin123
-        url: http://192.168.99.100:1111     
+        url: http://192.168.99.100:1111    
 
-hystrix:
-  command:
-    RemoteMessageClientCommand:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
-    RemoteMessageAnnotationClient:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000  
+
+            
 eureka:
   client:
     serviceUrl:

@@ -14,11 +14,23 @@ spring:
     profiles:
     active:
       default
+  zipkin:
+    baseUrl: http://192.168.99.100:9411
+    enabled: true
+  sleuth:
+    enabled: true
+    sampler:
+    percentage: 1        
   data:
-    mongodb:
+    mongodb:      
       host: 192.168.99.100
       port: 27017
-      database: fullnode
+      database: fullnode 
+  boot:
+    admin:
+        username: admin
+        password: admin123
+        url: http://192.168.99.100:1111 
 
 hystrix:
   command:
