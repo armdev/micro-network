@@ -6,12 +6,11 @@ Spring cloud Network
 
 cd to parent folder
 
-./clean.sh
-
 ./run.sh
 
 
 Tested on Windows 10 using DockerToolbox
+All communications used docker ip 192.168.99.100
 
 
 # Usefull commands
