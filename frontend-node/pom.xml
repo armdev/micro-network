@@ -63,7 +63,72 @@
              Change artifactId to jsf-undertow-myfaces-butterfaces-spring-boot-starter to use Undertow servlet container and MyFaces instead of Mojarra  
             <artifactId>jsf-jetty-myfaces-butterfaces-spring-boot-starter</artifactId> 
         </dependency>  -->
-  
+   <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-core</artifactId>
+            <version>1.5.11</version>
+            <scope/>
+        </dependency>        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>           
+        </dependency>        
+        <dependency>
+            <groupId>com.netflix.rxjava</groupId>
+            <artifactId>rxjava-core</artifactId>
+            <version>0.20.7</version>
+        </dependency>       
+        <dependency> 
+            <groupId>io.reactivex</groupId>  
+            <artifactId>rxjava</artifactId>  
+            <version>1.3.0</version> 
+        </dependency> 
+         <dependency> 
+            <groupId>org.apache.httpcomponents</groupId>  
+            <artifactId>httpclient</artifactId>  
+          
+        </dependency>  
+        <dependency> 
+            <groupId>com.googlecode.json-simple</groupId>  
+            <artifactId>json-simple</artifactId>  
+          
+        </dependency>  
+        <dependency> 
+            <groupId>org.codehaus.jackson</groupId>  
+            <artifactId>jackson-mapper-asl</artifactId>  
+            <version>1.9.13</version> 
+        </dependency>    
+        <dependency> 
+            <groupId>org.apache.commons</groupId>  
+            <artifactId>commons-io</artifactId>  
+            <version>1.3.2</version> 
+        </dependency>  
+        <dependency> 
+            <groupId>commons-fileupload</groupId>  
+            <artifactId>commons-fileupload</artifactId>  
+            <version>1.3.1</version> 
+        </dependency>  
+        <dependency> 
+            <groupId>commons-beanutils</groupId>  
+            <artifactId>commons-beanutils</artifactId>  
+            <version>1.9.2</version> 
+        </dependency>  
+        <dependency> 
+            <groupId>jstl</groupId>  
+            <artifactId>jstl</artifactId>  
+            <version>1.2</version> 
+        </dependency>  
+        <dependency> 
+            <groupId>commons-collections</groupId>  
+            <artifactId>commons-collections</artifactId>  
+            <version>3.2.2</version> 
+        </dependency>  
+        <dependency> 
+            <groupId>javax</groupId>  
+            <artifactId>javaee-web-api</artifactId>  
+            <version>7.0</version>  
+            <scope>provided</scope> 
+        </dependency>  
     </dependencies>  
     <build> 
         <finalName>frontend-node</finalName>  
