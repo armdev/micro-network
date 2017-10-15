@@ -1,77 +1,83 @@
-# micro-network
-Spring cloud Network
+# Spring cloud Micro Network
 
-
-# How to run?
-
-cd to parent folder
-
-./run.sh
-
+## Acknowledgement
 
 Tested on Windows 10 using DockerToolbox
-All communications used docker ip 192.168.99.100
+
+## RUN
 
 
-# Usefull commands
 
+```shell
+./run.sh
+```
 
-# Stop all containers
+Stop all containers:
 
+```shell
 docker stop $(docker ps -a -q)
+```
 
-# Remove all containers
+Remove all containers :
 
+```shell
 docker rm $(docker ps -a -q)
+```
 
-# Remove all images
+Remove all images
 
+```shell
 docker rmi $(docker images -q)
+```
 
-
-# Remove all images which has name none
-
+Remove all images which has name none
+```shell
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+```
 
-Access links
+Services
 
-Eureka node
+## Eureka node
 
 http://192.168.99.100:8761/
 
-core-node
+## core-node
 
 http://192.168.99.100:8585/swagger-ui.html 
 
-full-node
+## full-node
 
 http://192.168.99.100:8686/swagger-ui.html
 
-airline-node
+## airline-node
 
 http://192.168.99.100:9090/swagger-ui.html
 
-turbine-node
+## turbine-node
 
 http://192.168.99.100:8082/turbine.stream
 
-hystrix-node
+## hystrix-node
 
 http://192.168.99.100:8081/hystrix/
 
-Hystrix monitor turbine
+## Hystrix monitor turbine
 
 http://192.168.99.100:8081/hystrix/monitor?stream=http%3A%2F%2F192.168.99.100%3A8082%2Fturbine.stream
 
 For see hystrix monitor please do some clicks in http://192.168.99.100:8686/swagger-ui.html dummy API methods and switch to link
 
+##
+
 http://192.168.99.100:8081/hystrix/monitor?stream=http%3A%2F%2F192.168.99.100%3A8082%2Fturbine.stream
 
-Zipkin node will show logs from core-node after you click core node http://192.168.99.100:8585/swagger-ui.html dummy API methods.
+## Zipkin node 
+
+This node will show logs from other bodes after you click core node http://192.168.99.100:8585/swagger-ui.html dummy API methods.
 
 http://192.168.99.100:9411/
 
-Admin Tool Access
+## Admin Node
 
 http://192.168.99.100:1111/login.html
 
