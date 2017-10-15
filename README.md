@@ -73,7 +73,7 @@ http://192.168.99.100:8081/hystrix/monitor?stream=http%3A%2F%2F192.168.99.100%3A
 
 ## Zipkin node 
 
-This node will show logs from other bodes after you click core node http://192.168.99.100:8585/swagger-ui.html dummy API methods.
+This node will show logs from other nodes after you click core-node http://192.168.99.100:8585/swagger-ui.html API methods.
 
 http://192.168.99.100:9411/
 
