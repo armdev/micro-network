@@ -37,7 +37,7 @@ public class FlightController {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(flight));
     }
 
-    @GetMapping("/flights")
+    @GetMapping(path="/flights", produces = "application/json;charset=UTF-8")
     public Page<Flight> findAll() {
         log.debug("REST request to get all Blogs");
         PageRequest pageable =  new PageRequest(0,10);
