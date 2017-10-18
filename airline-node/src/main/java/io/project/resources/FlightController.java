@@ -3,6 +3,7 @@ package io.project.resources;
 import io.project.model.Flight;
 import io.project.repositories.FlightRepository;
 import io.project.services.FlightService;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,13 +39,14 @@ public class FlightController {
     }
 
     @GetMapping(path="/flights", produces = "application/json;charset=UTF-8")
-    public Page<Flight> findAll() {
+    public List<Flight> findAll() {
         log.debug("REST request to get all Blogs");
         PageRequest pageable =  new PageRequest(0,10);
-        //List<Flight> flightList = flightService.findAll();
+        List<Flight> flightList = new ArrayList<>();
         
         Page<Flight> page = flightRepository.findAll(new PageRequest(1, 100));
-        return page;
+        flightList.addAll(page.getContent());
+        return flightList;
     }
 //https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc
 }
