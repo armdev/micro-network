@@ -1,6 +1,7 @@
 package io.project.resources;
 
 import io.project.model.Flight;
+import io.project.repositories.FlightRepository;
 import io.project.services.FlightService;
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +9,8 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +26,9 @@ public class FlightController {
 
     @Autowired
     private FlightService flightService;
+    
+     @Autowired
+    private FlightRepository flightRepository;
 
     @GetMapping(path="/flight/{id}" , produces = "application/json;charset=UTF-8")
     public ResponseEntity<Flight> getFlight(@PathVariable Long id) {
@@ -32,10 +38,13 @@ public class FlightController {
     }
 
     @GetMapping("/flights")
-    public List<Flight> findAll() {
+    public Page<Flight> findAll() {
         log.debug("REST request to get all Blogs");
-        List<Flight> flightList = flightService.listAll();
-        return flightList;
+        PageRequest pageable =  new PageRequest(0,10);
+        //List<Flight> flightList = flightService.findAll();
+        
+        Page<Flight> page = flightRepository.findAll(new PageRequest(1, 100));
+        return page;
     }
 //https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc
 }

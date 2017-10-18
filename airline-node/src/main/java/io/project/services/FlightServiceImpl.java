@@ -1,6 +1,5 @@
 package io.project.services;
 
-
 import io.project.model.Flight;
 import io.project.repositories.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,24 +7,28 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Component;
 
 @Service
+@Component
 public class FlightServiceImpl implements FlightService {
-
-    private final FlightRepository flightRepository;
-
-
-    @Autowired
-    public FlightServiceImpl(FlightRepository flightRepository) {
-        this.flightRepository = flightRepository;
  
-    }
+    
+    @Autowired
+    private  FlightRepository flightRepository;
 
+
+   
+//    public FlightServiceImpl(FlightRepository flightRepository) {
+//        this.flightRepository = flightRepository;
+//    }
 
     @Override
-    public List<Flight> listAll() {
+    public List<Flight> findAll() {
         List<Flight> products = new ArrayList<>();
-        flightRepository.findAll().forEach(products::add); //fun with Java 8
+        // flightRepository.findAll().forEach(products::add); //fun with Java 8
+        products = flightRepository.findAll();
         return products;
     }
 
