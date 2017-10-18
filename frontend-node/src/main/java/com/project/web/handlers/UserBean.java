@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class UserBean {
 
-    private String email;
+    private String email ="mail@gmail.com";
 
     private String password;
 
