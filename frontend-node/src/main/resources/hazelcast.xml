@@ -1,0 +1,19 @@
+<hazelcast xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+                               http://www.hazelcast.com/schema/config/hazelcast-config-3.6.xsd"
+           xmlns="http://www.hazelcast.com/schema/config">
+
+    <map name="employeeMap*">
+        <time-to-live-seconds>30</time-to-live-seconds>
+    </map>
+    <map name="flightList">
+<!--        <time-to-live-seconds>60</time-to-live-seconds>-->
+<!--        <backup-count>0</backup-count>
+        <max-idle-seconds>0</max-idle-seconds>
+        <eviction-policy>LRU</eviction-policy>
+        <time-to-live-seconds>30</time-to-live-seconds>
+        <max-size>3000</max-size>
+        <eviction-percentage>30</eviction-percentage>
+        <merge-policy>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy</merge-policy>-->
+    </map>
+</hazelcast>
