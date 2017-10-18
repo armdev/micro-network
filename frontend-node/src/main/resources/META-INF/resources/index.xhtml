@@ -27,7 +27,32 @@
                     </p:panel>
                 </p:layoutUnit>
                 <p:layoutUnit position="center">
-                   
+                    <p:dataTable var="list" value="#{flightClient.allList}" rows="10"
+                                 paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{list.id}" />
+                        </p:column>
+                        
+                        <p:column headerText="airlineid">
+                            <h:outputText value="#{list.airlineid}" />
+                        </p:column>
+                        
+                         <p:column headerText="destcity name">
+                             <h:outputText value="#{list.destcityname}" />
+                        </p:column>
+                        
+                         <p:column headerText="origin">
+                             <h:outputText value="#{list.origin}" />
+                        </p:column>
+                        
+                         <p:column headerText="flight date">
+                             <h:outputText value="#{list.flightdate}" />
+                        </p:column>
+
+                       
+                    </p:dataTable>
                 </p:layoutUnit>
 
             </p:layout>
