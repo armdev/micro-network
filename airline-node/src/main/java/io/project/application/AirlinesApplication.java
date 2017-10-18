@@ -23,16 +23,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableAutoConfiguration
-//@EnableEurekaClient
+@EnableEurekaClient
 @EnableAsync
-//@EnableFeignClients
+@EnableFeignClients
 @EnableJpaRepositories("io.project.repositories")
 @EnableTransactionManagement(proxyTargetClass = true)
-//@EnableScheduling
-//@EnableHystrix
-//@EnableCircuitBreaker
-//@EnableDiscoveryClient
+@EnableScheduling
+@EnableHystrix
+@EnableCircuitBreaker
+@EnableDiscoveryClient
 @EnableCaching
 @Import(SpringConfig.class)
 @ComponentScan(basePackages = {"io"}, excludeFilters = {
