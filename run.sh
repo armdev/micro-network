@@ -23,6 +23,7 @@ docker-compose down
 
 echo "Start the config service first and wait for it to become available"
 docker-compose up -d --build
+#docker-compose up -d --build --scale frontend-node=2
 
 #docker exec -i mysql-node mysql -uroot -proot airlines < /mysql-node/db/airlines.sql
 #docker-compose exec mysql-node /bin/bash -c 'mysql -uroot -proot < ./mysql-node/db/airlines.sql'

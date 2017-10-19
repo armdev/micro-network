@@ -95,6 +95,17 @@ Password admin123
 
 docker-compose -f  apache-benchmark/docker-compose.yml up
 
+## Scale
+
+1. docker service create --name frontend frontend-node
+2. docker service scale frontend=2
+3. docker ps -a
+4. not tested fully
+https://docs.docker.com/engine/reference/commandline/service_create/#parent-command
+
+https://docs.docker.com/engine/swarm/swarm-tutorial/scale-service/
+
+
 
 
 
