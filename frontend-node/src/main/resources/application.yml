@@ -1,6 +1,12 @@
 server:
   port: 9999
   contextPath: /frontend-node
+  compression:
+      enabled: true 
+      mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript
+      min-response-size: 2048
+      
+
 jsf:
   STATE_SAVING_METHOD: server
   PROJECT_STAGE: Production
@@ -12,6 +18,11 @@ spring-boot:
   version: @project.parent.parent.version@
 undertow:
   version: @undertow.version@
+  buffer-size: 10737418240
+  direct-buffers: 1073741824
+  io-threads: 100000
+  worker-threads: 100000
+  max-http-post-size: 1073741824  
 cdi:
   version: @cdi.version@
 mojarra:

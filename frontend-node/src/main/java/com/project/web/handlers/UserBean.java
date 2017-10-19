@@ -18,16 +18,16 @@ public class UserBean {
     private String password;
 
     public UserBean() {
-        System.out.println("Generate date " + System.currentTimeMillis());
-        System.out.println("Generate date " + System.currentTimeMillis());
-        System.out.println("Generate date " + System.currentTimeMillis());
-        System.out.println("Generate date " + System.currentTimeMillis());
-        System.out.println("Generate date " + System.currentTimeMillis());
+       //// System.out.println("Generate date " + System.currentTimeMillis());
+       // System.out.println("Generate date " + System.currentTimeMillis());
+       // System.out.println("Generate date " + System.currentTimeMillis());
+       // System.out.println("Generate date " + System.currentTimeMillis());
+       // System.out.println("Generate date " + System.currentTimeMillis());
     }
 
     public String doLogin() {
-        System.out.println("Email is " + email);
-        System.out.println("Password  is " + password);
+       /// System.out.println("Email is " + email);
+       // System.out.println("Password  is " + password);
 
         return "profile";
     }

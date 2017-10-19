@@ -38,15 +38,15 @@ public class FlightClient implements Serializable {
     @Autowired
     private HazelcastInstance hazelcastInstance;
     private List<FlightModel> finalList = new ArrayList<>();
-    
+
     private FlightModel flightModel = new FlightModel();
 
     @PostConstruct
     public void init() {
         log.info("Post Construct started");
-      //  List<FlightModel> fetchList = this.getAllList();
-      //  this.addAll(fetchList);
-       // finalList = this.getListOfFlights();
+        //  List<FlightModel> fetchList = this.getAllList();
+        //  this.addAll(fetchList);
+        // finalList = this.getListOfFlights();
     }
 
     public List<FlightModel> getFinalDataList() {
@@ -54,7 +54,7 @@ public class FlightClient implements Serializable {
 //            return null;
 //        }
 
-           log.info("Get final list");
+        log.info("Get final list");
         finalList = this.getListOfFlights();
         return finalList;
     }
