@@ -88,7 +88,12 @@ http://192.168.99.100:1111/login.html
 User admin
 Password admin123
 
+## Restart all nodes
+./restart.sh 
 
+## Benchmark
+
+docker-compose -f  apache-benchmark/docker-compose.yml up
 
 
 
