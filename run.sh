@@ -14,7 +14,7 @@ echo "DOCKER_IP is "
 echo $DOCKER_IP
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
-docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+#docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 # docker-machine doesn't exist in Linux, assign default ip if it's not set
 #DOCKER_IP=${DOCKER_IP:-0.0.0.0}
 
