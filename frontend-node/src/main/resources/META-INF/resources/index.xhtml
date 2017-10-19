@@ -13,7 +13,7 @@
         <title>Send Message</title>
     </h:head>       
     <f:view transient="false">
-        <h:form>
+        <h:form prependId="false">
             <p:layout  fullPage="true" style="min-width:400px;min-height:200px;">
                 <p:layoutUnit position="west" resizable="true" size="600" minSize="40" maxSize="600">
                     <h3>Send Message</h3>
@@ -27,8 +27,59 @@
                     </p:panel>
                 </p:layoutUnit>
                 <p:layoutUnit position="center">
-                 
-                        
+                    <h3>Airlines Shedules</h3>
+                    <p:repeat value="#{flightClient.finalDataList}" var="list">
+                        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                            <p:commandLink update="aDetail" oncomplete="PF('aDialog').show()">
+                                <f:setPropertyActionListener value="#{list}" target="#{flightClient.flightModel}"/>   
+                                Open
+                            </p:commandLink> 
+                            <p:outputPanel>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <h:outputText value="Id:" />
+                                    <h:outputText value="#{list.id}" style="font-weight: bold"/>
+
+                                    <h:outputText value="Airlineid: " />
+                                    <h:outputText value="#{list.airlineid}" style="font-weight: bold"/>
+
+                                    <h:outputText value="destcity name" />
+                                    <h:outputText value="#{list.destcityname}" style="font-weight: bold"/>
+
+                                    <h:outputText value="origin name" />
+                                    <h:outputText value="#{list.origin}" style="font-weight: bold"/>
+
+                                    <h:outputText value="flightdate" />
+                                    <h:outputText value="#{list.flightdate}" style="font-weight: bold"/>
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </h:panelGrid>
+                        <hr />
+                    </p:repeat>
+
+                    <p:dialog header="Airline Info" widgetVar="aDialog"  resizable="false">
+                        <p:outputPanel id="aDetail" style="text-align:center;">
+                            <p:panelGrid  columns="2" rendered="#{not empty flightClient.flightModel}" columnClasses="label,value">
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:outputText value="Id:" />
+                                <h:outputText value="#{flightClient.flightModel.id}" style="font-weight: bold"/>
+
+                                <h:outputText value="Airlineid: " />
+                                <h:outputText value="#{flightClient.flightModel.airlineid}" style="font-weight: bold"/>
+
+                                <h:outputText value="destcity name" />
+                                <h:outputText value="#{flightClient.flightModel.destcityname}" style="font-weight: bold"/>
+
+                                <h:outputText value="origin name" />
+                                <h:outputText value="#{flightClient.flightModel.origin}" style="font-weight: bold"/>
+
+                                <h:outputText value="flightdate" />
+                                <h:outputText value="#{flightClient.flightModel.flightdate}" style="font-weight: bold"/>
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                    <ui:remove>
                         <p:dataTable var="list" value="#{flightClient.finalDataList}" rows="10" 
                                      paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -55,6 +106,7 @@
 
 
                         </p:dataTable>
+                    </ui:remove>
                 </p:layoutUnit>
 
             </p:layout>

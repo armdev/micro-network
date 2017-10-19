@@ -12,6 +12,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import lombok.Data;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -28,6 +29,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Named
 @RequestScoped
+@Data
 public class FlightClient implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,6 +38,8 @@ public class FlightClient implements Serializable {
     @Autowired
     private HazelcastInstance hazelcastInstance;
     private List<FlightModel> finalList = new ArrayList<>();
+    
+    private FlightModel flightModel = new FlightModel();
 
     @PostConstruct
     public void init() {
