@@ -1,10 +1,12 @@
 server:
   port: 9999
   contextPath: /frontend-node
+  connection-timeout: -1
+  max-http-header-size: 2048
   compression:
       enabled: true 
       mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript
-      min-response-size: 2048
+      min-response-size: 4096
       
 
 jsf:
@@ -23,6 +25,17 @@ undertow:
   io-threads: 100000
   worker-threads: 100000
   max-http-post-size: 1073741824  
+
+tomcat: 
+  max-connections: 100000
+  max-http-post-size: 2048
+  max-threads: 10000
+  min-spare-threads: 10000
+  uri-encoding: UTF-8
+  accept-count: 100000
+  
+  
+  
 cdi:
   version: @cdi.version@
 mojarra:
