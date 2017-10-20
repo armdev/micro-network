@@ -1,7 +1,7 @@
 server:
   port: 9999
   contextPath: /frontend-node
-  connection-timeout: -1
+  connection-timeout: 60000
   max-http-header-size: 2048
   compression:
       enabled: true 
