@@ -1,4 +1,4 @@
-﻿version: '2'
+version: '3'
 services:
   mysql-node:
     image: mysql-node
@@ -21,95 +21,91 @@ services:
       - ./data/db:/data/db
     ports:
       - 27017:27017      
-    command: mongod --smallfiles --logpath=/dev/null # --quiet          
+    command: mongod --smallfiles --logpath=/dev/null   
   eureka-node:
-      image: eureka-node
-      build: ./eureka-node
-      container_name: "eureka-node"      
-      ports:
-        - "8761:8761"      
+    image: eureka-node
+    build: ./eureka-node
+    container_name: "eureka-node"      
+    ports:
+      - "8761:8761"      
   config-node:
-      image: config-node
-      build: ./config-node
-      container_name: "config-node"
-      links:
-           - eureka-node          
-      ports:
-        - "8888:8888"             
+    image: config-node
+    build: ./config-node
+    container_name: "config-node"
+    links:
+      - eureka-node          
+    ports:
+      - "8888:8888"             
   turbine-node:
-      image: turbine-node
-      build: ./turbine-node
-      container_name: "turbine-node"
-      links:        
-           - eureka-node                  
-      ports:
-        - "8082:8082"           
+    image: turbine-node
+    build: ./turbine-node
+    container_name: "turbine-node"
+    links:        
+      - eureka-node                  
+    ports:
+      - "8082:8082"           
   hystrix-node:
-      image: hystrix-node
-      build: ./hystrix-node
-      container_name: "hystrix-node"
-      links:           
-           - eureka-node
-           - config-node
-           - turbine-node
-      ports:
-        - "8081:8081"             
+    image: hystrix-node
+    build: ./hystrix-node
+    container_name: "hystrix-node"
+    links:           
+      - eureka-node
+      - config-node
+      - turbine-node
+    ports:
+      - "8081:8081"             
   zipkin-node:
-      image: zipkin-node
-      build: ./zipkin-node
-      container_name: "zipkin-node"
-      links:           
-           - eureka-node
-      ports:
-        - "9411:9411"    
+    image: zipkin-node
+    build: ./zipkin-node
+    container_name: "zipkin-node"
+    links:           
+      - eureka-node
+    ports:
+      - "9411:9411"    
   full-node:
-      image: full-node
-      build: ./full-node
-      container_name: "full-node"
-      links:
-           - mongo-node            
-           - eureka-node
-           - config-node
-      ports:
-        - "8686:8686"            
+    image: full-node
+    build: ./full-node
+    container_name: "full-node"
+    links:
+      - mongo-node            
+      - eureka-node
+      - config-node
+    ports:
+      - "8686:8686"            
   core-node:
-      image: core-node
-      build: ./core-node
-      container_name: "core-node"
-      links:           
-           - eureka-node
-           - config-node
-      ports:
-        - "8585:8585"   
+    image: core-node
+    build: ./core-node
+    container_name: "core-node"
+    links:           
+      - eureka-node
+      - config-node
+    ports:
+      - "8585:8585"   
   airline-node:
-      image: airline-node
-      build: ./airline-node
-      container_name: "airline-node"
-      links:           
-           - eureka-node
-           - config-node
-           - mysql-node
-      ports:
-        - "9090:9090"            
+    image: airline-node
+    build: ./airline-node
+    container_name: "airline-node"
+    links:           
+      - eureka-node
+      - config-node
+      - mysql-node
+    ports:
+      - "9090:9090"            
   admin-node:
-      image: admin-node
-      build: ./admin-node
-      container_name: "admin-node"
-      links:           
-           - eureka-node
-           - config-node
-           - zipkin-node
-           - turbine-node
-      ports:
-        - "1111:1111"            
+    image: admin-node
+    build: ./admin-node
+    container_name: "admin-node"
+    links:           
+      - eureka-node
+      - config-node
+      - zipkin-node
+      - turbine-node
+    ports:
+      - "1111:1111"            
   frontend-node:
-      image: frontend-node
-      build: ./frontend-node
-      container_name: "frontend-node"    
-      ports:
-      #  - "9995:9995"
-       # - "9996:9996"
-       # - "9997:9997"     
-       # - "9998:9998"      
-        - "9999:9999"       
+    image: frontend-node
+    build: ./frontend-node
+    container_name: "frontend-node"    
+    ports:         
+      - "9999:9999"       
       

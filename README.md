@@ -6,8 +6,6 @@ Tested on Windows 10 using DockerToolbox
 
 ## RUN
 
-
-
 ```shell
 ./run.sh
 ```
@@ -34,6 +32,21 @@ Remove all images which has name none
 ```shell
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 ```
+
+Monitoring containers
+```shell
+docker run \
+  --volume=/:/rootfs:ro \
+  --volume=/var/run:/var/run:rw \
+  --volume=/sys:/sys:ro \
+  --volume=/var/lib/docker/:/var/lib/docker:ro \
+  --volume=/dev/disk/:/dev/disk:ro \
+  --publish=9999:9999 \
+  --detach=true \
+  --name=cadvisor \
+  google/cadvisor:latest
+```
+
 
 Services
 
@@ -88,6 +101,7 @@ http://192.168.99.100:1111/login.html
 User admin
 Password admin123
 
+docker-compose up -d --no-deps --build airline-node
 ## Restart all nodes
 ./restart.sh 
 

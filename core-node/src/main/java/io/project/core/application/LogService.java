@@ -8,16 +8,15 @@ import org.springframework.cloud.sleuth.Span;
 import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class LogService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LogService.class);
 
     @Autowired
-    private Tracer tracer;       
+    private Tracer tracer;
 
-    public void log(String msg) {        
+    public void log(String msg) {
         Span logServiceSpan = this.tracer.createSpan("core-node-log");
         try {
             LOGGER.info(msg);
@@ -25,7 +24,7 @@ public class LogService {
             this.tracer.close(logServiceSpan);
         }
     }
-    
+
     public String getTimeAsString() {
 
         Span dateServiceSpan = this.tracer.createSpan("core-node-log");

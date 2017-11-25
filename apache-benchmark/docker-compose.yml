@@ -1,18 +1,5 @@
 version: '2'
 services: 
   apache-benchmark-0:   
-   image: jordi/ab    
-   command: ab -n 100 -c 10 -l -r http://192.168.99.100:8585/api/v1/heavyrequest  
-  apache-benchmark-1:   
-   image: jordi/ab    
-   command: ab -n 100 -c 10 -l -r http://192.168.99.100:8585/api/v1/time  
-  apache-benchmark-2:   
-   image: jordi/ab    
-   command: ab -n 100 -c 10 -l -r http://192.168.99.100:8686/api/logs/callme  
-  apache-benchmark-3:   
-   image: jordi/ab    
-   command: ab -n 100 -c 10 -l -r  http://192.168.99.100:8686/api/logs/fallback  
-  apache-benchmark-4:   
-   image: jordi/ab    
-   command: ab -n 100 -c 10 -l -r  http://192.168.99.100:9999/frontend-node/index.jsf
-  
+   image: russmckendrick/ab    
+   command: ab -n 1000 -c 10000 -l -r http://192.168.99.100:5000/api/v2/mathload 
