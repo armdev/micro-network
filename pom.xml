@@ -2,20 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.project</groupId>
-    <artifactId>network</artifactId>
+    <artifactId>heronet</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
     <modules>        
-        <module>config-node</module>
-        <module>eureka-node</module>
-        <module>zipkin-node</module>		
-        <module>turbine-node</module>
-        <module>hystrix-node</module>	        	
-        <module>core-node</module>
-        <module>full-node</module>
-        <module>airline-node</module>
-        <module>admin-node</module>
-        <module>frontend-node</module>        
+        <module>confignode</module>
+        <module>eurekanode</module>
+        <module>zipkinnode</module>		
+        <module>turbinenode</module>
+        <module>hystrixnode</module>	        	
+        <module>corenode</module>
+        <module>fullnode</module>
+        <module>airlinenode</module>
+        <module>adminnode</module>
+        <module>frontendnode</module>        
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

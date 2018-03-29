@@ -1,9 +1,9 @@
 version: '3'
 services:
-  mysql-node:
-    image: mysql-node
-    build: ./mysql-node
-    container_name: "mysql-node"
+  mysqlnode:
+    image: mysqlnode
+    build: ./mysqlnode
+    container_name: mysqlnode
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=admin
@@ -11,9 +11,9 @@ services:
       - MYSQL_DATABASE=airlines
     ports:
       - 3306:3306    
-  mongo-node:
+  mongonode:
     image: mongo:latest
-    container_name: "mongo-node"
+    container_name: mongonode
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
@@ -22,90 +22,90 @@ services:
     ports:
       - 27017:27017      
     command: mongod --smallfiles --logpath=/dev/null   
-  eureka-node:
-    image: eureka-node
-    build: ./eureka-node
-    container_name: "eureka-node"      
+  eurekanode:
+    image: eurekanode
+    build: ./eurekanode
+    container_name: eurekanode     
     ports:
       - "8761:8761"      
-  config-node:
-    image: config-node
-    build: ./config-node
-    container_name: "config-node"
+  confignode:
+    image: confignode
+    build: ./confignode
+    container_name: confignode
     links:
-      - eureka-node          
+      - eurekanode          
     ports:
       - "8888:8888"             
-  turbine-node:
-    image: turbine-node
-    build: ./turbine-node
-    container_name: "turbine-node"
+  turbinenode:
+    image: turbinenode
+    build: ./turbinenode
+    container_name: turbinenode
     links:        
-      - eureka-node                  
+      - eurekanode                  
     ports:
       - "8082:8082"           
-  hystrix-node:
-    image: hystrix-node
-    build: ./hystrix-node
-    container_name: "hystrix-node"
+  hystrixnode:
+    image: hystrixnode
+    build: ./hystrixnode
+    container_name: hystrixnode
     links:           
-      - eureka-node
-      - config-node
-      - turbine-node
+      - eurekanode
+      - confignode
+      - turbinenode
     ports:
       - "8081:8081"             
-  zipkin-node:
-    image: zipkin-node
-    build: ./zipkin-node
-    container_name: "zipkin-node"
+  zipkinnode:
+    image: zipkinnode
+    build: ./zipkinnode
+    container_name: zipkinnode
     links:           
-      - eureka-node
+      - eurekanode
     ports:
       - "9411:9411"    
-  full-node:
-    image: full-node
-    build: ./full-node
-    container_name: "full-node"
+  fullnode:
+    image: fullnode
+    build: ./fullnode
+    container_name: fullnode
     links:
-      - mongo-node            
-      - eureka-node
-      - config-node
+      - mongonode            
+      - eurekanode
+      - confignode
     ports:
       - "8686:8686"            
-  core-node:
-    image: core-node
-    build: ./core-node
-    container_name: "core-node"
+  corenode:
+    image: corenode
+    build: ./corenode
+    container_name: corenode
     links:           
-      - eureka-node
-      - config-node
+      - eurekanode
+      - confignode
     ports:
       - "8585:8585"   
-  airline-node:
-    image: airline-node
-    build: ./airline-node
-    container_name: "airline-node"
+  airlinenode:
+    image: airlinenode
+    build: ./airlinenode
+    container_name: airlinenode
     links:           
-      - eureka-node
-      - config-node
-      - mysql-node
+      - eurekanode
+      - confignode
+      - mysqlnode
     ports:
       - "9090:9090"            
-  admin-node:
-    image: admin-node
-    build: ./admin-node
-    container_name: "admin-node"
+  adminnode:
+    image: adminnode
+    build: ./adminnode
+    container_name: adminnode
     links:           
-      - eureka-node
-      - config-node
-      - zipkin-node
-      - turbine-node
+      - eurekanode
+      - confignode
+      - zipkinnode
+      - turbinenode
     ports:
       - "1111:1111"            
   frontend-node:
-    image: frontend-node
-    build: ./frontend-node
-    container_name: "frontend-node"    
+    image: frontendnode
+    build: ./frontendnode
+    container_name: frontendnode
     ports:         
       - "9999:9999"       
       

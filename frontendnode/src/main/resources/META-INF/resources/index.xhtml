@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"  
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <title>Airline Front end</title>
+    </h:head>       
+    <f:view transient="true">
+        <h:form prependId="false">
+            <p:layout  fullPage="true" style="min-width:400px;min-height:200px;">
+                <p:layoutUnit position="west" resizable="true" size="600" minSize="40" maxSize="600">
+                    <h3>Send Message</h3>
+                    <p:panel id="panel" style="width: 400px;" header="Message Effects" toggleable="true">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel for="text" value="Send email:" />
+                            <p:inputText id="text" value="#{userBean.email}" required="true" />
+                            <h:outputText />
+                            <p:commandButton id="submit" value="SEND" ajax="false" action="#{userBean.doLogin()}"/>
+                        </h:panelGrid>
+                    </p:panel>
+                </p:layoutUnit>
+                <p:layoutUnit position="center">
+                    <h3>Airlines Shedules</h3>
+                    <p:repeat value="#{flightClient.finalDataList}" var="list">
+                        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                            <p:commandLink update="aDetail" oncomplete="PF('aDialog').show()">
+                                <f:setPropertyActionListener value="#{list}" target="#{flightClient.flightModel}"/>   
+                                Open
+                            </p:commandLink> 
+                            <p:outputPanel>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <h:outputText value="Id:" />
+                                    <h:outputText value="#{list.id}" style="font-weight: bold"/>
+
+                                    <h:outputText value="Airlineid: " />
+                                    <h:outputText value="#{list.airlineid}" style="font-weight: bold"/>
+
+                                    <h:outputText value="destcity name" />
+                                    <h:outputText value="#{list.destcityname}" style="font-weight: bold"/>
+
+                                    <h:outputText value="origin name" />
+                                    <h:outputText value="#{list.origin}" style="font-weight: bold"/>
+
+                                    <h:outputText value="flightdate" />
+                                    <h:outputText value="#{list.flightdate}" style="font-weight: bold"/>
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </h:panelGrid>
+                        <hr />
+                    </p:repeat>
+
+                    <p:dialog header="Airline Info" widgetVar="aDialog"  showEffect="blind" hideEffect="explode"  resizable="false">
+                        <p:outputPanel id="aDetail" style="text-align:center;">
+                            <p:panelGrid  columns="2" rendered="#{not empty flightClient.flightModel}" columnClasses="label,value">
+                                <f:facet name="header">
+
+                                </f:facet>
+                                <h:outputText value="Id:" />
+                                <h:outputText value="#{flightClient.flightModel.id}" style="font-weight: bold"/>
+
+                                <h:outputText value="Airlineid: " />
+                                <h:outputText value="#{flightClient.flightModel.airlineid}" style="font-weight: bold"/>
+
+                                <h:outputText value="destcity name" />
+                                <h:outputText value="#{flightClient.flightModel.destcityname}" style="font-weight: bold"/>
+
+                                <h:outputText value="origin name" />
+                                <h:outputText value="#{flightClient.flightModel.origin}" style="font-weight: bold"/>
+
+                                <h:outputText value="flight date" />
+                                <h:outputText value="#{flightClient.flightModel.flightdate}" style="font-weight: bold"/>
+                                
+                                 <h:outputText value="dest" />
+                                 <h:outputText value="#{flightClient.flightModel.dest}" style="font-weight: bold"/>
+                                 
+                                 <h:outputText value="flight num" />
+                                 <h:outputText value="#{flightClient.flightModel.flightnum}" style="font-weight: bold"/>
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                    <ui:remove>
+                        <p:dataTable var="list" value="#{flightClient.finalDataList}" rows="10" 
+                                     paginator="true"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     rowsPerPageTemplate="5,10,15">
+                            <p:column headerText="Id">
+                                <h:outputText value="#{list.id}" />
+                            </p:column>
+
+                            <p:column headerText="airlineid">
+                                <h:outputText value="#{list.airlineid}" />
+                            </p:column>
+
+                            <p:column headerText="destcity name">
+                                <h:outputText value="#{list.destcityname}" />
+                            </p:column>
+
+                            <p:column headerText="origin">
+                                <h:outputText value="#{list.origin}" />
+                            </p:column>
+
+                            <p:column headerText="flight date">
+                                <h:outputText value="#{list.flightdate}" />
+                            </p:column>
+
+
+                        </p:dataTable>
+                    </ui:remove>
+                </p:layoutUnit>
+
+            </p:layout>
+        </h:form>
+
+
+    </f:view>    
+</html>
+

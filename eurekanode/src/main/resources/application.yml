@@ -1,0 +1,48 @@
+server:
+  port: 8761
+  #host: 192.168.99.100
+  #host: 127.0.0.1
+  
+management:
+  security:  
+    enabled: false 
+
+spring:
+  application:
+    name: eurekanode
+  boot:
+    admin:
+        username: admin
+        password: admin123
+        url: http://adminnode:1111
+  data:
+    mongodb:
+      host: mongonode
+      #host: 192.168.99.100
+      port: 27017
+      database: eureka-node
+
+eureka:
+  instance:
+    hostname: localhost
+    metadataMap:
+      instanceId: ${spring.application.name}
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    registerWithEureka: false  
+    fetchRegistry: true
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://eurekanode:8761/eureka/
+#
+#eureka:
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    
+
+# host config
+# 127.0.0.1 192.168.99.100
+# 192.168.99.100 127.0.0.1

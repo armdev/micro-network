@@ -1,0 +1,24 @@
+server:
+     port: 9411 
+
+logging:
+      level.org.springframework.cloud: DEBUG
+    
+spring:
+    application:
+        name: zipkinnode      
+    sleuth:
+        enabled: false
+    zipkin:
+        storage:
+            type: mem    
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eurekanode:8761/eureka}
+  cloud:
+    config:
+      uri: http://confignode:8888
+      
+   

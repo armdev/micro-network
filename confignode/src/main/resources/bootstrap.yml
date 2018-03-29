@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: confignode
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eurekanode:8761/eureka}

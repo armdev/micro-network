@@ -1,0 +1,51 @@
+server:
+  port: 9999
+  contextPath: /frontendnode
+  connection-timeout: 60000
+  max-http-header-size: 2048
+  compression:
+      enabled: true 
+      mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript
+      min-response-size: 4096
+      
+
+jsf:
+  STATE_SAVING_METHOD: server
+  PROJECT_STAGE: Production
+  primefaces:
+    theme: cupertino
+joinfaces:
+  version: @project.parent.version@
+spring-boot:
+  version: @project.parent.parent.version@
+undertow:
+  version: @undertow.version@
+  buffer-size: 10737418240
+  direct-buffers: 1073741824
+  io-threads: 100000
+  worker-threads: 100000
+  max-http-post-size: 1073741824  
+
+tomcat: 
+  max-connections: 100000
+  max-http-post-size: 2048
+  max-threads: 10000
+  min-spare-threads: 10000
+  uri-encoding: UTF-8
+  accept-count: 100000
+  
+  
+  
+cdi:
+  version: @cdi.version@
+mojarra:
+  version: @javax.faces.version@
+primefaces:
+  version: @primefaces.version@
+
+
+
+
+    
+  
+    

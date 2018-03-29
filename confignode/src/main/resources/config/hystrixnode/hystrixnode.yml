@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: hystrixnode
+    profiles:
+    active:
+      default
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eurekanode:8761/eureka}
+  cloud:
+    config:
+      uri: http://confignode:8888

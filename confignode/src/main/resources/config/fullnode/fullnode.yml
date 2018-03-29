@@ -1,0 +1,46 @@
+server:
+  port: 8686
+
+management:
+  security:  
+    enabled: false  
+    
+    
+undertow:
+   buffer-size: 1073741824
+   direct-buffers: 1073741824
+   io-threads: 100000
+   worker-threads: 100000
+   max-http-post-size: 1073741824   
+
+spring:
+  application:
+    name: fullnode
+    profiles:
+    active:
+      default
+  zipkin:
+    baseUrl: http://zipkinnode:9411
+    enabled: true
+  sleuth:
+    enabled: true
+    sampler:
+    percentage: 1        
+  data:
+    mongodb:      
+      host: mongonode
+      port: 27017
+      database: fullnode 
+  boot:
+    admin:
+        username: admin
+        password: admi192.168.99.100n123
+        url: http://adminnode:1111    
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eurekanode:8761/eureka}
+  cloud:
+    config:
+      uri: http://confignode:8888

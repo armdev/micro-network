@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: turbinenode
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekanode:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+  cloud:
+    config:
+      uri: http://confignode:8888   
+
+turbine:
+  clusterNameExpression: new String("default")
+  appConfig: corenode fullnode
+  combineHostPort: true

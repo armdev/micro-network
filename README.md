@@ -68,7 +68,7 @@ http://192.168.99.100:9090/swagger-ui.html
 
 ## frontend-node
 
-http://192.168.99.100:9999/frontend-node/index.jsf
+http://192.168.99.100:9999/frontendnode/index.jsf
 
 ## turbine-node
 
